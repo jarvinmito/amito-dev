@@ -11,7 +11,7 @@ import "@mantine/core/styles.css";
 import theme from "@/app/theme";
 import FloatingNavigator from "@/components/FloatingNavigator";
 import { GUTTERS, MIN_HEIGHT, PADDING } from "@/constants";
-import Logo from "@/components/Brand/Logo/Logo";
+import Logo from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Amito",
