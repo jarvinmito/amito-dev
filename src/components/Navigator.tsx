@@ -6,6 +6,8 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { ROUTES } from "@/constants";
 import { usePathname } from "next/navigation";
 
+const NAV_GAP = 10;
+
 const Navigator = () => {
   // Get theme
   const theme = useMantineTheme();
@@ -27,7 +29,7 @@ const Navigator = () => {
   );
 
   return (
-    <Stack justify="flex-end" align="flex-end" gap={3}>
+    <Stack justify="flex-end" align="flex-end" gap={NAV_GAP}>
       {opened || isOnBigScreen ? (
         <>
           {links.map((link, linkIndex) => (
@@ -52,7 +54,7 @@ const Navigator = () => {
           ))}
         </>
       ) : (
-        <Box h={27 * links.length + 3 * (links.length - 1)} />
+        <Box h={27 * links.length + NAV_GAP * (links.length - 1)} />
       )}
       <Burger
         opened={opened}
