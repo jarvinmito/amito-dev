@@ -24,12 +24,14 @@ const ScrollUp = () => {
         left: isOnBigScreen ? GUTTERS : GUTTERS_SMALL,
       }}
     >
-      <Transition transition="slide-up" mounted={scroll.y > 0}>
+      <Transition transition="slide-up" mounted={scroll.y > 600}>
         {(transitionStyle) => (
           <Button
-            color="dark"
+            color="black"
             size="md"
             radius="xl"
+            pl={11}
+            h={48}
             style={transitionStyle}
             onClick={() => scrollTo({ y: 0 })}
             leftSection={

@@ -15,6 +15,7 @@ const BrandTitle = ({
       variant="gradient"
       gradient={{ from: "white", to: "black" }}
       component="span"
+      lh={1.18}
     >
       {text || children}
     </Text>

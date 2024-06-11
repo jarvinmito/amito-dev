@@ -3,15 +3,16 @@ import Link from "next/link";
 import {
   Anchor,
   Container,
-  List,
   Stack,
+  Text,
   ThemeIcon,
-  Title,
+  Timeline,
   rem,
 } from "@mantine/core";
-import { GUTTERS_SMALL, ROUTES } from "@/app/lib/constants";
-import { IconArticle } from "@tabler/icons-react";
-import BrandTitle from "../Branding/BrandTitle";
+import { GUTTERS, GUTTERS_SMALL, ROUTES } from "@/app/lib/constants";
+import { IconNews } from "@tabler/icons-react";
+import BrandTitle from "@/components/Branding/BrandTitle";
+import ScrollUp from "@/components/ScrollUp/ScrollUp";
 
 export interface IBlog {
   title: string;
@@ -29,11 +30,12 @@ export interface IMarkdownData {
   teaser_image?: string;
 }
 
-export default function Blog() {
+const BlogSection = () => {
   const blogList: IBlog[] = [
     {
       title: "Level up your sari-sari store",
-      description: "Mitotwee: Your Sari-Sari Store's Digital Upgrade",
+      description:
+        "Featuring the launch of my latest work, a micro app for store owners, Mitotwee. Manage inventory and monitor sales using the app, goodbye to manual pen and paper listing.",
       publish_date: "June 10, 2024",
       filename: "mitotwee-launch",
     },
@@ -48,31 +50,47 @@ export default function Blog() {
   ];
 
   return (
-    <Container size="sm" px={0} mx={0}>
+    <Container size="sm" px={0} mx={0} pb={GUTTERS}>
       <Stack justify="center" gap={GUTTERS_SMALL}>
-        <BrandTitle>Latest news</BrandTitle>
+        <BrandTitle>Recent activities</BrandTitle>
         <Stack>
-          <List spacing="xl">
+          <Timeline bulletSize={48} lineWidth={1} color="black">
             {blogList.map((blog, blogIndex) => (
-              <List.Item
+              <Timeline.Item
                 key={`blog-${blogIndex}`}
-                icon={
-                  <ThemeIcon size={48} variant="subtle" radius="xl">
-                    <IconArticle style={{ width: rem(32), height: rem(32) }} />
+                bullet={
+                  <ThemeIcon
+                    size={40}
+                    variant="light"
+                    radius="xl"
+                    color="white"
+                  >
+                    <IconNews style={{ width: rem(24), height: rem(24) }} />
                   </ThemeIcon>
                 }
               >
-                <Anchor
-                  component={Link}
-                  href={`${ROUTES.LANDING.BLOG}/${blog.filename}`}
-                >
-                  <Title order={2}>{blog.title}</Title>
-                </Anchor>
-              </List.Item>
+                <Stack gap="xs" pb="xl">
+                  <Anchor
+                    component={Link}
+                    href={`${ROUTES.LANDING.BLOG}/${blog.filename}`}
+                  >
+                    <Text size="lg" c="dark" lh={1}>
+                      {blog.title}
+                    </Text>
+                  </Anchor>
+                  <Stack>
+                    <Text c="dimmed">{blog.publish_date}</Text>
+                    <Text c="dark.4">{blog.description}</Text>
+                  </Stack>
+                </Stack>
+              </Timeline.Item>
             ))}
-          </List>
+          </Timeline>
         </Stack>
       </Stack>
+      <ScrollUp />
     </Container>
   );
-}
+};
+
+export default BlogSection;

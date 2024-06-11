@@ -14,6 +14,7 @@ import ReactMarkdown from "react-markdown";
 import { getPostData } from "@/app/lib/blogpost";
 import { GUTTERS, GUTTERS_SMALL, PADDING, ROUTES } from "@/app/lib/constants";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
 
 export default async function BlogPost({ params }: any) {
   const postData = await getPostData(params.post);
@@ -32,7 +33,7 @@ export default async function BlogPost({ params }: any) {
           >
             <Text>Back to blogs</Text>
           </Button>
-          <Title lh={1.18}>{postData.title}</Title>
+          <BrandTitle>{postData.title}</BrandTitle>
           <Text>{postData.publish_date}</Text>
 
           <ReactMarkdown>{postData.content}</ReactMarkdown>

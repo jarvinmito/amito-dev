@@ -1,5 +1,5 @@
-import BrandTitle from "@/components/Branding/BrandTitle";
+import HireMeSection from "@/components/Sections/HireMe";
 
 export default function HireMe() {
-  return <BrandTitle text="Hire me" />;
+  return <HireMeSection />;
 }

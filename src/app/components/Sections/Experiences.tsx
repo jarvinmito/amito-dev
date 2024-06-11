@@ -5,15 +5,18 @@ import {
   Container,
   Stack,
   Text,
+  ThemeIcon,
   Timeline,
   Title,
+  rem,
 } from "@mantine/core";
 import BrandTitle from "@/components/Branding/BrandTitle";
 import ScrollUp from "@/components/ScrollUp/ScrollUp";
 import { GUTTERS } from "@/app/lib/constants";
 import Link from "next/link";
+import { IconBuilding, IconBuildingArch } from "@tabler/icons-react";
 
-const Experiences = () => {
+const ExperiencesSection = () => {
   const exp = [
     {
       title: "VTVL",
@@ -191,16 +194,11 @@ const Experiences = () => {
     <Container size="sm" mx={0} px={0} pb={GUTTERS}>
       <Stack gap="xl">
         <BrandTitle text="Experiences" />
-        <Timeline
-          bulletSize={28}
-          lineWidth={4}
-          active={exp.length - 1}
-          color="gray.4"
-        >
+        <Timeline bulletSize={48} lineWidth={1} color="black">
           {exp.map((xp, xpIndex) => (
             <Timeline.Item
               title={
-                <Title order={2} lh={1}>
+                <Title order={2} lh={1} pt={5}>
                   <Text
                     component={Link}
                     size="lg"
@@ -213,6 +211,11 @@ const Experiences = () => {
                     {xp.title}
                   </Text>
                 </Title>
+              }
+              bullet={
+                <ThemeIcon size={40} variant="light" radius="xl" color="white">
+                  <IconBuilding style={{ width: rem(24), height: rem(24) }} />
+                </ThemeIcon>
               }
               key={`exp-item-${xpIndex}`}
             >
@@ -243,4 +246,4 @@ const Experiences = () => {
   );
 };
 
-export default Experiences;
+export default ExperiencesSection;
