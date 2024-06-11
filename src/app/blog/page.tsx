@@ -1,5 +1,5 @@
-import { Title } from "@mantine/core";
+import BlogSection from "@/app/components/Sections/Blog";
 
-export default function Blog() {
-  return <Title>This is the blog page</Title>;
+export default function BlogPage() {
+  return <BlogSection />;
 }
