@@ -1,5 +1,5 @@
-import { Title } from "@mantine/core";
+import Experiences from "@/components/Sections/Experiences";
 
-export default function Experience() {
-  return <Title>This is the experience page</Title>;
+export default function ExperiencesPage() {
+  return <Experiences />;
 }

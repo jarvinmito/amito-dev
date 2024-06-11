@@ -1,4 +1,4 @@
-import TechStack from "@/components/TechStack";
+import TechStack from "@/app/components/TechStack";
 
 const LandingSection = () => <TechStack />;
 

@@ -13,8 +13,8 @@ import {
 import { Carousel } from "@mantine/carousel";
 
 import AutoScroll, { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
-import { GUTTERS } from "@/constants";
-import { ITech, TECH_STACK } from "@/constants";
+import { GUTTERS } from "@/app/lib/constants";
+import { ITech, TECH_STACK } from "@/app/lib/constants";
 
 interface ITechStackCarouselProps {
   techStack: ITech[];
@@ -30,7 +30,7 @@ const TechStackCarousel = ({
 }: ITechStackCarouselProps) => {
   const autoscroll = useRef(
     AutoScroll({
-      startDelay: 2000,
+      startDelay: 0,
       speed: 3,
       stopOnInteraction: false,
       stopOnFocusIn: false,

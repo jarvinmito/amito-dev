@@ -1,9 +1,5 @@
-import { Stack, Title, rem } from "@mantine/core";
+import Blog from "@/app/components/Sections/Blog";
 
-export default function Blog() {
-  return (
-    <Stack h={rem(2000)}>
-      <Title>This is the blog page</Title>
-    </Stack>
-  );
+export default function BlogPage() {
+  return <Blog />;
 }

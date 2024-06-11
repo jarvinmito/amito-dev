@@ -19,7 +19,7 @@ const AmitoSection = () => (
         <Text
           inherit
           variant="gradient"
-          gradient={{ from: "blue.8", to: "lime.4", deg: 90 }}
+          gradient={{ from: "white", to: "black" }}
           tt="uppercase"
           lh={rem(54)}
           data-aos="fade-in"
@@ -53,7 +53,8 @@ const AmitoSection = () => (
   </Text> */}
       </Title>
       <Text size="md" fw={300} data-aos="fade-in" data-aos-delay="200">
-        Based in Olongapo City Zambales, Philippines 2200
+        {/* Based in Olongapo City Zambales, Philippines 2200 */}
+        Based in Philippines
       </Text>
       <TechStackSimple />
     </Stack>

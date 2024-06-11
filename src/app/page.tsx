@@ -1,6 +1,4 @@
-"use client";
-
-import LandingSection from "@/components/Sections/Landing";
+import LandingSection from "@/app/components/Sections/Landing";
 
 export default function Home() {
   return <LandingSection />;

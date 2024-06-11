@@ -9,9 +9,9 @@ import {
   em,
   useMantineTheme,
 } from "@mantine/core";
-import Socials from "@/components/Socials";
-import Navigator from "@/components/Navigator";
-import { GUTTERS, PADDING } from "@/constants";
+import Socials from "@/app/components/Socials";
+import Navigator from "@/app/components/Navigator";
+import { GUTTERS, PADDING } from "@/app/lib/constants";
 import { useMediaQuery } from "@mantine/hooks";
 
 const FloatingNavigator = () => {
@@ -45,7 +45,7 @@ const FloatingNavigator = () => {
               {/* EXTRA */}
               <Divider orientation="vertical" flex={1} ml="100%" />
               {/* SOCMEDS */}
-              <Stack mr="-14">
+              <Stack mr="-17">
                 <Socials />
               </Stack>
             </Stack>

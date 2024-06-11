@@ -1,13 +1,30 @@
 "use client";
 
-import { PADDING, ROUTES } from "@/constants";
-import { Box, Stack } from "@mantine/core";
-import { useElementSize } from "@mantine/hooks";
+import { useEffect, useState } from "react";
+import { useParams, usePathname } from "next/navigation";
+import Link from "next/link";
+import {
+  ActionIcon,
+  Box,
+  SimpleGrid,
+  Stack,
+  em,
+  rem,
+  useMantineTheme,
+} from "@mantine/core";
+import { useElementSize, useMediaQuery } from "@mantine/hooks";
+import { IconArrowLeft } from "@tabler/icons-react";
+import {
+  GUTTERS,
+  GUTTERS_SMALL,
+  MIN_HEIGHT,
+  PADDING,
+  ROUTES,
+} from "@/app/lib/constants";
+import Logo from "@/app/components/Logo";
+import AmitoSection from "@/app/components/Sections/Amito";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { usePathname } from "next/navigation";
-
-import { useEffect, useState } from "react";
 
 export default function RootTemplate({
   children,
@@ -16,7 +33,17 @@ export default function RootTemplate({
 }>) {
   const { ref, height } = useElementSize();
   const [viewProp, setViewProp] = useState({});
+
+  // Route checks
   const path = usePathname();
+  const { post } = useParams();
+  const isRootRoute = !post;
+  const isHomePage = path === ROUTES.LANDING.HOME;
+
+  const theme = useMantineTheme();
+  const isOnBigScreen = useMediaQuery(
+    `(min-width: ${em(theme.breakpoints.md)})`
+  );
 
   useEffect(() => {
     AOS.init({
@@ -30,35 +57,64 @@ export default function RootTemplate({
   }, []);
 
   useEffect(() => {
-    if (!height) setViewProp({ visibleFrom: "md" });
+    if (!height && isHomePage) setViewProp({ visibleFrom: "md" });
     else setViewProp({ visibleFrom: "base" });
   }, [height]);
+
   return (
-    <Stack
-      pr={PADDING}
-      {...viewProp}
-      style={{
-        position: "relative",
-        zIndex: 2,
-        background:
-          path === ROUTES.LANDING.HOME
-            ? "transparent"
-            : "var(--mantine-color-body)",
-      }}
+    <SimpleGrid
+      cols={isHomePage ? { base: 1, md: 2 } : 1}
+      spacing={PADDING}
+      verticalSpacing={PADDING}
+      flex={1}
+      style={{ position: "relative" }}
     >
-      {path !== ROUTES.LANDING.HOME ? (
-        <Box
-          style={{
-            position: "absolute",
-            top: -64,
-            height: 64,
-            width: "100%",
-            background:
-              "linear-gradient(180deg, rgba(253,253,253,0) 0%, var(--mantine-color-body) 90%)",
-          }}
-        />
-      ) : null}
-      <Box ref={ref}>{children}</Box>
-    </Stack>
+      {/* LEFT SIDE */}
+      <Stack
+        justify="space-between"
+        align="flex-start"
+        gap={GUTTERS}
+        h={isHomePage ? MIN_HEIGHT : "auto"}
+        maw={{ base: 350, xs: 450, sm: 600 }}
+        pb={isHomePage ? 0 : PADDING}
+        style={{
+          position: isOnBigScreen ? "sticky" : "static",
+          top: GUTTERS_SMALL,
+          zIndex: 1,
+        }}
+      >
+        <div
+          data-aos="fade-in"
+          data-aos-duration="1200"
+          style={{ zIndex: 99, isolation: "isolate" }}
+        >
+          <Logo />
+        </div>
+        {isHomePage && <AmitoSection />}
+      </Stack>
+      <Stack
+        pr={PADDING}
+        {...viewProp}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          background: isHomePage ? "transparent" : "var(--mantine-color-body)",
+        }}
+      >
+        {/* {!isHomePage ? (
+          <Box
+            style={{
+              position: "absolute",
+              top: -64,
+              height: 64,
+              width: "100%",
+              background:
+                "linear-gradient(180deg, rgba(253,253,253,0) 0%, var(--mantine-color-body) 90%)",
+            }}
+          />
+        ) : null} */}
+        <Box ref={ref}>{children}</Box>
+      </Stack>
+    </SimpleGrid>
   );
 }

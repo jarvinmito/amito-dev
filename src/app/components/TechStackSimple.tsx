@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Group, rem } from "@mantine/core";
-import { TECH_STACK } from "@/constants";
+import { TECH_STACK } from "@/app/lib/constants";
 
 const TechStackSimple = () => (
   <Group hiddenFrom="md">

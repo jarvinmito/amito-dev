@@ -1,5 +1,5 @@
-import { Title } from "@mantine/core";
+import BrandTitle from "@/components/Branding/BrandTitle";
 
 export default function HireMe() {
-  return <Title>This is the hire me page</Title>;
+  return <BrandTitle text="Hire me" />;
 }

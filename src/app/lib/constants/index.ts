@@ -9,6 +9,6 @@ export const MIN_HEIGHT = {
   sm: `calc(100vh - ${rem(GUTTERS * 2)})`,
 };
 
-export * from "@/constants/externals";
-export * from "@/constants/routes";
-export * from "@/constants/lists";
+export * from "@/app/lib/constants/externals";
+export * from "@/app/lib/constants/routes";
+export * from "@/app/lib/constants/lists";

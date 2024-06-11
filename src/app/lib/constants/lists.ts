@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import VercelLogo from "@/public/techstack/vercel.svg";
 import NextJSLogo from "@/public/techstack/next.svg";
 import ReactJSLogo from "@/public/techstack/reactjs-logo.svg";

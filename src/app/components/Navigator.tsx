@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Anchor, Box, Burger, Stack, em, useMantineTheme } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { ROUTES } from "@/constants";
+import { ROUTES } from "@/app/lib/constants";
 import { usePathname } from "next/navigation";
 
 const NAV_GAP = 10;
