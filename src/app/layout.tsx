@@ -6,6 +6,7 @@ import "@mantine/carousel/styles.css";
 import theme from "@/app/theme";
 import FloatingNavigator from "@/app/components/FloatingNavigator";
 import { PADDING } from "@/app/lib/constants";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ColorSchemeToggle } from "./components/ColorSchemeToggle";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
             <FloatingNavigator />
             {/* <ColorSchemeToggle /> */}
           </main>
+          <GoogleAnalytics gaId="G-GE5MHG167X" />
         </body>
       </MantineProvider>
     </html>
