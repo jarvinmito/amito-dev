@@ -29,7 +29,7 @@ const Navigator = () => {
   );
 
   return (
-    <Stack justify="flex-end" align="flex-end" gap={NAV_GAP}>
+    <Stack justify="flex-end" align="flex-end" gap={NAV_GAP} component="nav">
       {opened || isOnBigScreen ? (
         <>
           {links.map((link, linkIndex) => (

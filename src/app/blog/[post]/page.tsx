@@ -22,7 +22,12 @@ export default async function BlogPost({ params }: any) {
   return (
     <TypographyStylesProvider>
       <Container size="sm" mx={0} px={0} pb={GUTTERS}>
-        <Stack gap={GUTTERS_SMALL} align="flex-start" pb={GUTTERS}>
+        <Stack
+          gap={GUTTERS_SMALL}
+          align="flex-start"
+          pb={GUTTERS}
+          component="article"
+        >
           <Button
             component={Link}
             href={ROUTES.LANDING.BLOG}
