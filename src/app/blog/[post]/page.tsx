@@ -1,22 +1,41 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import {
   Button,
   Container,
   Stack,
   Text,
-  Title,
   TypographyStylesProvider,
   rem,
 } from "@mantine/core";
-import { useWindowScroll } from "@mantine/hooks";
-import { IconArrowLeft, IconArrowUp } from "@tabler/icons-react";
+import { IconArrowLeft } from "@tabler/icons-react";
 import ReactMarkdown from "react-markdown";
 import { getPostData } from "@/app/lib/blogpost";
 import { GUTTERS, GUTTERS_SMALL, PADDING, ROUTES } from "@/app/lib/constants";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import BrandTitle from "@/app/components/Branding/BrandTitle";
 
-export default async function BlogPost({ params }: any) {
+type Props = {
+  params: { post: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // fetch data
+  const postData = await getPostData(params.post);
+  return {
+    title: postData.title,
+    openGraph: {
+      title: postData.title,
+      description: postData.teaser_description,
+    },
+  };
+}
+
+export default async function BlogPost({ params }: Props) {
   const postData = await getPostData(params.post);
 
   return (
@@ -42,7 +61,6 @@ export default async function BlogPost({ params }: any) {
           <Text>{postData.publish_date}</Text>
 
           <ReactMarkdown>{postData.content}</ReactMarkdown>
-          {/* <div dangerouslySetInnerHTML={{ __html: postData.content }} /> */}
         </Stack>
       </Container>
       <ScrollUp />
