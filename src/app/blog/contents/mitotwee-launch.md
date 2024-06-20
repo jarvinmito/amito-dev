@@ -34,19 +34,19 @@ Mitotwee's core philosophy is to free up valuable time for store owners so they 
 
 ## Mitotwee in Action: A Typical Day for a Sari-Sari Store
 
-**Morning**: Check the app for a quick overview of stock levels and any aging products.
-**Throughout the day**: Scan barcodes to quickly ring up orders and process payments.
-**Evening**: Review sales reports to see how the day went. Identify top-selling items and any outstanding credit transactions.
+- **Morning**: Check the app for a quick overview of stock levels and any aging products.
+- **Throughout the day**: Scan barcodes to quickly ring up orders and process payments.
+- **Evening**: Review sales reports to see how the day went. Identify top-selling items and any outstanding credit transactions.
 
 ## Why Mitotwee is a Sari-Sari Store Essential:
 
-**Designed for Filipinos**: The app understands the nuances of local retail practices.
-**User-friendly**: Even those with limited tech experience can navigate the app with ease.
-**Affordable**: Mitotwee is FREE as a base and will offer flexible pricing plans to suit different budgets in next iterations.
-**Support**: A dedicated support team is available to assist you.
+- **Designed for Filipinos**: The app understands the nuances of local retail practices.
+- **User-friendly**: Even those with limited tech experience can navigate the app with ease.
+- **Affordable**: Mitotwee is **FREE** as a base and will offer flexible pricing plans to suit different budgets in next iterations.
+- **Support**: A dedicated support team is available to assist you.
 
 ## Ready to Take Your Store to the Next Level?
 
-If you're a small store owner looking to simplify your operations and gain more time to focus on growth, Mitotwee could be the solution you've been waiting for. Visit **[https://mitotwee.com](https://mitotwee.com)** to learn more and try it for FREE today.
+If you're a small store owner looking to simplify your operations and gain more time to focus on growth, Mitotwee could be the solution you've been waiting for. Visit **[https://mitotwee.com](https://mitotwee.com)** to learn more and try it for **FREE** today.
 
 **Remember**: Your time is valuable. Let **Mitotwee** handle the details so you can focus on building a thriving business!

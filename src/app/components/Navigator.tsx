@@ -20,7 +20,7 @@ const Navigator = () => {
     { name: "Amito", href: ROUTES.LANDING.HOME },
     { name: "Blog", href: ROUTES.LANDING.BLOG },
     { name: "Experience", href: ROUTES.LANDING.EXP },
-    { name: "Hire me", href: ROUTES.LANDING.HIRE },
+    { name: "Services", href: ROUTES.LANDING.SERVICES },
   ];
 
   // Check if the current view is on MEDIUM+ screen size

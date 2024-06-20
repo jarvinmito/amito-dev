@@ -5,5 +5,6 @@ export const ROUTES = {
     BLOG: "/blog",
     EXP: "/exp",
     HIRE: "/hire-me",
+    SERVICES: "/services",
   },
 };
