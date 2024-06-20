@@ -2,8 +2,10 @@ import { Box, Button, Card, SimpleGrid, Stack, Text } from "@mantine/core";
 import OfferingsSection from "@/app/components/Sections/Services/Offerings";
 import { formatNumber } from "@/app/lib/utils/formatters";
 import Link from "next/link";
+import { CURRENCIES } from "@/app/lib/constants";
 
 const ConvertUISection = () => {
+  const usdRate = 50;
   const pricing = [
     {
       title: "Basic",
@@ -59,7 +61,12 @@ const ConvertUISection = () => {
                     {price.title}
                   </Text>
                   <Text size="lg" lh={1}>
-                    {formatNumber(price.price)}
+                    {formatNumber(
+                      price.price * usdRate,
+                      0,
+                      false,
+                      CURRENCIES.PHP
+                    )}
                   </Text>
                 </Box>
                 <Box>
