@@ -96,6 +96,7 @@ const MitotweeSection = () => {
                     </Text>
                   </Text>
                   <Text size="sm">
+                    as low as{" "}
                     <Text fw={700} component="span">
                       {formatNumber(price.price / 30, 0, false, CURRENCIES.PHP)}
                     </Text>{" "}
