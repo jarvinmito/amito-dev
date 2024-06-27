@@ -4,16 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "analyze": "ANALYZE=true next build",
+    "build": "next build && cp -r assets/ .next/static/assets",
+    "analyze": "ANALYZE=true next build && cp -r assets/ .next/static/assets",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "email:build": "email build",
+    "email:dev": "email dev",
+    "email:export": "email export"
   },
   "dependencies": {
     "@mantine/carousel": "^7.10.1",
     "@mantine/core": "^7.8.1",
     "@mantine/hooks": "^7.10.0",
     "@next/third-parties": "^14.2.4",
+    "@react-email/components": "0.0.19",
+    "@react-email/font": "^0.0.6",
+    "@react-email/tailwind": "^0.0.18",
     "@tabler/icons-react": "^3.5.0",
     "aos": "^2.3.4",
     "embla-carousel-auto-scroll": "^8.1.3",
@@ -22,6 +28,7 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-email": "^2.1.4",
     "react-markdown": "^9.0.1",
     "react-type-animation": "^3.2.0",
     "remark": "^15.0.1",

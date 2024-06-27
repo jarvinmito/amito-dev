@@ -6,5 +6,6 @@ export const ROUTES = {
     EXP: "/exp",
     HIRE: "/hire-me",
     SERVICES: "/services",
+    WORKS: "/works",
   },
 };
