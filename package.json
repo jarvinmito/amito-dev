@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r assets/ .next/static/assets",
-    "analyze": "ANALYZE=true next build && cp -r assets/ .next/static/assets",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
     "email:build": "email build",
