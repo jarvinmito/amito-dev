@@ -27,13 +27,13 @@ const AmitoSection = () => (
         >
           <TypeAnimation
             sequence={[
-              "I do HTML",
+              "HTML + CSS + JS",
               1200,
-              "I do CSS",
+              "Email Templates",
               1200,
-              "I do Javascript",
+              "UI Design",
               1200,
-              "I do UI Design",
+              "Ship micro SaaS",
               1200,
               "Frontend Developer",
             ]}
