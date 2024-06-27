@@ -30,15 +30,18 @@ import {
   Tailwind,
   Text,
 } from "@react-email/components";
-import React from "react";
 import Font from "@/emails/components/Font";
+import React from "react";
+import {
+  clientFolder,
+  commonFolder,
+} from "@/emails/portfolio/fasyun/constants";
 
 interface LayoutTemplateProps {
   previewText?: string;
   children?: React.ReactNode;
 }
 
-const baseUrl = "https://amito.dev";
 const gmail = "https://gmail.com/";
 const linkedin = "https://linkedin.com/";
 const instagram = "https://instagram.com/";
@@ -55,7 +58,7 @@ export const LayoutTemplate = ({
         fontFamilyCode="bodoni"
         fallbackFontFamily="Arial"
         webFont={{
-          url: `${baseUrl}/assets/portfolio/fasyun/fonts/bodoni-moda-v25-latin-regular.woff2`,
+          url: `${clientFolder}/fonts/bodoni-moda-v25-latin-regular.woff2`,
           // url: "https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap",
           format: "woff2",
         }}
@@ -76,56 +79,45 @@ export const LayoutTemplate = ({
               <Text className="text-center text-lg">
                 View more updates on our social media
               </Text>
-              <Row className="max-w-[320px] mx-auto">
-                <Column>
+              <Row className="w-auto max-w-[320px] mx-auto">
+                <Column className="text-center px-2">
                   <Link
                     href={gmail}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-gmail.png`}
+                      src={`${commonFolder}/images/brand-gmail.png`}
                       alt="GMail"
+                      width={24}
                     />
                   </Link>
                 </Column>
-                <Column>
+                <Column className="text-center px-2">
                   <Link
                     href={linkedin}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-linkedin.png`}
+                      src={`${commonFolder}/images/brand-linkedin.png`}
                       alt="LinkedIn"
+                      width={24}
                     />
                   </Link>
                 </Column>
-                <Column>
+                <Column className="text-center px-2">
                   <Link
                     href={instagram}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-instagram.png`}
+                      src={`${commonFolder}/images/brand-instagram.png`}
                       alt="Instagram"
+                      width={24}
                     />
                   </Link>
-                </Column>
-              </Row>
-              <Row>
-                <Column>
-                  <Text className="text-center text-xs">
-                    A Product by{" "}
-                    <Link
-                      href="https://amito.dev"
-                      target="_blank"
-                      className="font-bold text-[#ffb119]"
-                    >
-                      Amito
-                    </Link>
-                  </Text>
                 </Column>
               </Row>
             </Container>
