@@ -38,9 +38,7 @@ interface LayoutTemplateProps {
   children?: React.ReactNode;
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+const baseUrl = "https://amito.dev";
 const gmail = "https://gmail.com/";
 const linkedin = "https://linkedin.com/";
 const instagram = "https://instagram.com/";
