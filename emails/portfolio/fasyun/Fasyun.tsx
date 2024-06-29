@@ -1,6 +1,7 @@
+import React from "react";
 import { Button, Container, Img, Text } from "@react-email/components";
 import { LayoutTemplate } from "./layout";
-import { clientFolder } from "./constants";
+import { clientImages } from "./constants";
 
 interface FasyunProps {
   customerName?: string;
@@ -10,7 +11,7 @@ const Fasyun = ({ customerName }: FasyunProps) => {
   return (
     <LayoutTemplate previewText="Exclusive Sale Alert!">
       <Img
-        src={`${clientFolder}/images/banner-min.png`}
+        src={`${clientImages}/banner-min.png`}
         alt="Fasyun"
         width="100%"
         className="rounded-t-lg"
@@ -27,7 +28,7 @@ const Fasyun = ({ customerName }: FasyunProps) => {
             to save big on your favorite products/services through our email
             newsletter.
           </Text>
-          <Button className="uppercase bg-[#e9c09f] px-6 py-3 rounded-full text-white font-bold text-sm">
+          <Button className="uppercase bg-[#e9c09f] px-6 py-3 rounded-full text-white font-inter-bold text-sm">
             Shop now
           </Button>
         </Container>

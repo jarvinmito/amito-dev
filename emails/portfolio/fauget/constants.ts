@@ -1,5 +1,5 @@
 export const baseUrl = "https://assets.amito.dev";
-export const clientFolder = `${baseUrl}/portfolio/fasyun`;
+export const clientFolder = `${baseUrl}/portfolio/fauget`;
 export const clientFonts = `${clientFolder}/fonts`;
 export const clientImages = `${clientFolder}/images`;
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 type FallbackFont =
   | "Arial"
@@ -50,20 +51,22 @@ const Font = ({
     : "";
 
   const htmlData = `
-          @font-face {
-              font-style: ${fontStyle};
-              font-family: "${fontFamily}";
-              font-weight: ${fontWeight};
-              mso-font-alt: ${
-                Array.isArray(fallbackFontFamily)
-                  ? fallbackFontFamily[0]
-                  : fallbackFontFamily
-              };
-              ${src}
-          }
+    @font-face {
+      font-style: ${fontStyle};
+      font-family: "${fontFamily}";
+      font-weight: ${fontWeight};
+      mso-font-alt: ${
+        Array.isArray(fallbackFontFamily)
+          ? fallbackFontFamily[0]
+          : fallbackFontFamily
+      };
+      ${src}
+    }
 
-          .font-${fontFamilyCode} { font-family: "${fontFamily}"; }
-        `;
+    .font-${fontFamilyCode} {
+      font-family: "${fontFamily}", ${defaultTheme.fontFamily.sans.join(", ")};
+    }
+  `;
 
   /* {`
       @font-face {
