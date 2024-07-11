@@ -14,7 +14,6 @@
 // [ ] - Code Export
 // [ ] - Testing screenshots
 // [ ] - Delivery -- Send Code or Upload to Client's ESP
-
 import {
   Body,
   Column,
@@ -30,17 +29,19 @@ import {
   Tailwind,
   Text,
 } from "@react-email/components";
+import Font from "@/emails/_components/Font";
 import React from "react";
-import Font from "@/emails/components/Font";
+import {
+  clientFonts,
+  clientImages,
+  commonImages,
+} from "@/emails/portfolio/fasyun/constants";
 
 interface LayoutTemplateProps {
   previewText?: string;
   children?: React.ReactNode;
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
 const gmail = "https://gmail.com/";
 const linkedin = "https://linkedin.com/";
 const instagram = "https://instagram.com/";
@@ -49,91 +50,92 @@ export const LayoutTemplate = ({
   previewText,
   children,
 }: LayoutTemplateProps) => (
-  <Html>
-    <Head>
-      <Font
-        fontFamily="Bodoni Moda"
-        // use .font-dm with this
-        fontFamilyCode="bodoni"
-        fallbackFontFamily="Arial"
-        webFont={{
-          url: `${baseUrl}/assets/portfolio/fasyun/fonts/bodoni-moda-v25-latin-regular.woff2`,
-          // url: "https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap",
-          format: "woff2",
-        }}
-        fontWeight={400}
-        fontStyle="normal"
-      />
-    </Head>
-    <Preview>{previewText!}</Preview>
-    <Tailwind>
+  <Tailwind>
+    <Html>
+      <Head>
+        <Font
+          fontFamily="Bodoni Moda"
+          // use .font-dm with this
+          fontFamilyCode="bodoni"
+          fallbackFontFamily="Arial"
+          webFont={{
+            url: `${clientFonts}/bodoni-moda-v25-latin-regular.woff2`,
+            format: "woff2",
+          }}
+          fontWeight={400}
+          fontStyle="normal"
+        />
+      </Head>
       <Body className="mx-auto p-10 m-0 font-sans">
-        <Container className="w-full max-w-[640px] mx-auto">
-          <Container className="border-1 border-solid border-[#7b7b7b] rounded-lg bg-[#e9c09f] py-10 px-20">
-            <Section>
-              <Heading className="text-center font-bold">Fasyun</Heading>
+        <Preview>{previewText!}</Preview>
+        <Container className="w-full max-w-[700px] mx-auto">
+          <Container className="border-1 border-solid border-[#7b7b7b] rounded-lg bg-[#e9c09f] py-10 px-16 shadow-2xl">
+            <Section className="mb-4">
+              <Row className="w-auto">
+                <Column className="px-2">
+                  <Img
+                    src={`${clientImages}/fasyun-logo.png`}
+                    alt="Fasyun logo"
+                    width={72}
+                  />
+                </Column>
+                <Column className="px-2">
+                  <Heading className="text-center font-bold font-bodoni">
+                    Fasyun
+                  </Heading>
+                </Column>
+              </Row>
             </Section>
             <Section>{children}</Section>
             <Container className="pt-6">
               <Text className="text-center text-lg">
                 View more updates on our social media
               </Text>
-              <Row className="max-w-[320px] mx-auto">
-                <Column>
+              <Row className="w-auto max-w-[320px] mx-auto">
+                <Column className="text-center px-2">
                   <Link
                     href={gmail}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-gmail.png`}
+                      src={`${commonImages}/brand-gmail.png`}
                       alt="GMail"
+                      width={24}
                     />
                   </Link>
                 </Column>
-                <Column>
+                <Column className="text-center px-2">
                   <Link
                     href={linkedin}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-linkedin.png`}
+                      src={`${commonImages}/brand-linkedin.png`}
                       alt="LinkedIn"
+                      width={24}
                     />
                   </Link>
                 </Column>
-                <Column>
+                <Column className="text-center px-2">
                   <Link
                     href={instagram}
                     target="_blank"
-                    className="text-gray-500 text-xs rounded-full bg-white"
+                    className="text-gray-500 text-xs rounded-full bg-white inline-flex justify-center align-center p-1.5"
                   >
                     <Img
-                      src={`${baseUrl}/assets/common/images/brand-instagram.png`}
+                      src={`${commonImages}/brand-instagram.png`}
                       alt="Instagram"
+                      width={24}
                     />
                   </Link>
-                </Column>
-              </Row>
-              <Row>
-                <Column>
-                  <Text className="text-center text-xs">
-                    A Product by{" "}
-                    <Link
-                      href="https://amito.dev"
-                      target="_blank"
-                      className="font-bold text-[#ffb119]"
-                    >
-                      Amito
-                    </Link>
-                  </Text>
                 </Column>
               </Row>
             </Container>
           </Container>
         </Container>
       </Body>
-    </Tailwind>
-  </Html>
+    </Html>
+  </Tailwind>
 );

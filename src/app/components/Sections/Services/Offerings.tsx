@@ -1,5 +1,4 @@
-import { List, Text, ThemeIcon, rem } from "@mantine/core";
-import { IconCheck } from "@tabler/icons-react";
+import Listing from "../../Listing/Listing";
 
 const OfferingsSection = () => {
   const offers = [
@@ -39,27 +38,7 @@ const OfferingsSection = () => {
         "(Optional) Choose Mantine: For a wide range of pre-built, customizable UI elements to streamline development and enhance design consistency. Other Libraries: We can discuss alternative component libraries or build custom components to perfectly match your design.",
     },
   ];
-  return (
-    <List
-      spacing="lg"
-      icon={
-        <ThemeIcon radius="xl" size="md" variant="light" color="black">
-          <IconCheck style={{ width: rem(16), height: rem(16) }} />
-        </ThemeIcon>
-      }
-    >
-      {offers.map((offer, offerIndex) => (
-        <List.Item key={`offer-${offerIndex}`}>
-          <Text size="sm">
-            <Text fw={700} component="span">
-              {offer.title}
-            </Text>
-            : {offer.description}
-          </Text>
-        </List.Item>
-      ))}
-    </List>
-  );
+  return <Listing list={offers} />;
 };
 
 export default OfferingsSection;

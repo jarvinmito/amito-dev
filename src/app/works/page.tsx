@@ -1,4 +1,4 @@
-import ExperiencesSection from "@/components/Sections/Experiences";
+import WorksSection from "@/components/Sections/Works";
 
 export const metadata = {
   title: "My Works",
@@ -10,5 +10,5 @@ export const metadata = {
 };
 
 export default function PortfolioPage() {
-  return <ExperiencesSection />;
+  return <WorksSection />;
 }

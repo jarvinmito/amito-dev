@@ -1,3 +1,4 @@
+import React from "react";
 import { Tailwind, Button } from "@react-email/components";
 
 export const Email = () => {
