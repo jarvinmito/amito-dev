@@ -3,7 +3,6 @@
 import { GUTTERS } from "@/app/lib/constants";
 import BrandTitle from "@/components/Branding/BrandTitle";
 import {
-  Box,
   Button,
   Container,
   Stack,
@@ -18,17 +17,22 @@ import Link from "next/link";
 import ScrollUp from "@/components/ScrollUp/ScrollUp";
 import ConvertUISection from "@/components/Sections/Services/ConvertUI";
 import MitotweeSection from "./Services/Mitotwee";
+import EmailServiceSection from "./Services/EmailService";
 
 const HireMeSection = () => {
   const services = [
+    // {
+    //   title: "Email template design & development",
+    //   description: <EmailServiceSection />,
+    // },
     {
       title: "Software for sari-sari store owners",
       description: <MitotweeSection />,
     },
-    {
-      title: "Convert UI to NextJS website",
-      description: <ConvertUISection />,
-    },
+    // {
+    //   title: "Convert UI to NextJS website",
+    //   description: <ConvertUISection />,
+    // },
     {
       title: "Custom development",
       description: (
@@ -59,13 +63,22 @@ const HireMeSection = () => {
         <Text>
           I offer{" "}
           <Text component="span" fw={700}>
-            Micro-apps (Software as a Service)
+            Landing page design &amp; coding
+          </Text>
+          {", "}
+          <Text component="span" fw={700}>
+            Email template design &amp; coding
+          </Text>
+          {", "}
+          <Text component="span" fw={700}>
+            Micro-apps (Software as a Service) development
           </Text>{" "}
           and{" "}
           <Text component="span" fw={700}>
-            Web development services
+            Other web development service
           </Text>
-          . Let me know if you have any questions, or just hit the{" "}
+          . Let me know if you have any questions, send my a message or just hit
+          the{" "}
           <Text component="span" fw={700}>
             Inquire
           </Text>{" "}
