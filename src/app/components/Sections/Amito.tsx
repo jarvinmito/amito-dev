@@ -27,11 +27,9 @@ const AmitoSection = () => (
         >
           <TypeAnimation
             sequence={[
-              "HTML + CSS + JS",
+              "Landing Pages",
               1200,
               "Email Templates",
-              1200,
-              "UI Design",
               1200,
               "Ship micro SaaS",
               1200,
