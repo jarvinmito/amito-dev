@@ -156,12 +156,10 @@ const ExperiencesSection = () => {
       date: "Jun 2010 - Jul 2013 · 3 yrs 2 mos",
       location: "Philippines · On-site",
       description: [
-        "Creation of concepts for proposal to Japanese client in web development.",
-        "Analysis and Research on Web Projects for usability of Japanese employees.",
-        "Implementation of Agile Development methodology.",
-        "Provide prototypes for proposed project.",
-        "Supervise web development team.",
-        "Graphic Design + Coding for front-end and back-end projects.",
+        "Serving local personalities in the Philippines to deliver their personal website",
+        "Convert UI to responsive front-end code.",
+        "Create custom content management features.",
+        "Provide graphic design services.",
       ],
     },
     {
