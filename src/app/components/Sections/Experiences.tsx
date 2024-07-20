@@ -29,9 +29,10 @@ const ExperiencesSection = () => {
       date: "Sep 2022 - Dec 2023 · 1 yr 4 mos",
       location: "Singapore, Singapore · Remote",
       description: [
-        "I collaborated closely with design and development teams to deliver all front-end elements of the marketing website.",
+        "Our purpose is to help Web3 investors in their token management by automating token vesting and distribution.",
+        "Collaborated closely with design and development teams to deliver all front-end elements of the marketing website.",
         "My role focused on creating a compelling UI and enhancing the web app's overall user experience.",
-        "I also improved development efficiency by automating our repository workflows.",
+        "Improved development efficiency by automating our repository workflows.",
       ],
     },
     {
@@ -45,7 +46,7 @@ const ExperiencesSection = () => {
       date: "Dec 2021 - Sep 2022 · 10 mos",
       location: "Sydney, New South Wales, Australia · Remote",
       description: [
-        "I am an offshore Frontend Engineer responsible for Mable's Web and Mobile application.",
+        "Off-shore Frontend Engineer responsible for Mable's Web and Mobile application tailored for Support worker industry in Australia.",
         "Looking after all features and providing responsive and highly accessible user interface.",
       ],
     },
@@ -61,7 +62,7 @@ const ExperiencesSection = () => {
       location: "BGC Taguig, Philippines · On-site",
       description: [
         "Trained and Certified Solutions Architect (AWS SolArch Associate).",
-        "Solutions Architect for an OTT (over-the-top) Platform",
+        "Solutions Architect for an OTT (over-the-top) Platform offering video streaming service to Philippine market.",
       ],
     },
     {
@@ -75,7 +76,8 @@ const ExperiencesSection = () => {
       date: "Feb 2017 - Dec 2019 · 2 yrs 11 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "WiFi Captive Portal Platform Front-end developer and lead",
+        "Lead the front-end development aspect for delivering WiFi Captive Portal Platform that serves multiple businesses offering wifi captive portals in their establishments.",
+        "My best work and solution for white-label and custom captive portals using configuration-based theming which make development, testing and deployment of captive portals swift and requires less effort than the previous process.",
       ],
     },
     {
@@ -89,6 +91,7 @@ const ExperiencesSection = () => {
       date: "Oct 2016 - Feb 2017 · 5 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
+        "Acted as an officer-in-charge as a User Experience Design Team Capability Lead to serve our ongoing projects.",
         "Review Technical Pre-sales estimates on their proposals.",
         "Monitor team utilization to ensure resources are always productive.",
         "Responsible for other front-end development tasks",
@@ -105,8 +108,9 @@ const ExperiencesSection = () => {
       date: "Oct 2015 - Oct 2016 · 1 yr 1 mo",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Create wireframes, mockups or storyboard for different projects.",
-        "Convert mock-ups into a working code within the agreed timeline",
+        "Cross-functional role with a purpose to deliver on the agreed timeline.",
+        "Created wireframes, mockups or storyboard for different projects.",
+        "Convert mockups into a working responsive design code.",
       ],
     },
     {
