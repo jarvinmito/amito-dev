@@ -18,14 +18,14 @@ const MitotweeSection = () => {
     {
       title: "Monthly",
       billed: "monthly",
-      price: 300,
+      price: 270,
       href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
     },
     {
       title: "Yearly",
       billed: "yearly",
-      price: 210,
-      discount: 30,
+      price: 180,
+      discount: 33,
       selected: true,
       href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
     },
