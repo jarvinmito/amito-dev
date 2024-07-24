@@ -18,14 +18,14 @@ const MitotweeSection = () => {
     {
       title: "Monthly",
       billed: "monthly",
-      price: 270,
+      price: 180,
       href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
     },
     {
       title: "Yearly",
       billed: "yearly",
-      price: 180,
-      discount: 33,
+      price: 135,
+      discount: 25,
       selected: true,
       href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
     },
@@ -82,7 +82,7 @@ const MitotweeSection = () => {
                       price.billed === "yearly"
                         ? price.price * 12
                         : price.price,
-                      0,
+                      2,
                       false,
                       CURRENCIES.PHP
                     )}
@@ -98,7 +98,7 @@ const MitotweeSection = () => {
                   <Text size="sm">
                     as low as{" "}
                     <Text fw={700} component="span">
-                      {formatNumber(price.price / 30, 0, false, CURRENCIES.PHP)}
+                      {formatNumber(price.price / 30, 2, false, CURRENCIES.PHP)}
                     </Text>{" "}
                     / day
                   </Text>
