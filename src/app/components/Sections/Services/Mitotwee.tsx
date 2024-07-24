@@ -19,7 +19,7 @@ const MitotweeSection = () => {
       title: "Monthly",
       billed: "monthly",
       price: 180,
-      href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
+      href: "https://mitotwee.com",
     },
     {
       title: "Yearly",
@@ -27,7 +27,7 @@ const MitotweeSection = () => {
       price: 135,
       discount: 25,
       selected: true,
-      href: "https://forms.gle/Lvb8oRA3r9RzmFvR9",
+      href: "https://mitotwee.com",
     },
   ];
 
@@ -112,7 +112,7 @@ const MitotweeSection = () => {
                   size="md"
                   variant={price.selected ? "filled" : "light"}
                 >
-                  Inquire
+                  Visit App
                 </Button>
               </Stack>
             </Card>
