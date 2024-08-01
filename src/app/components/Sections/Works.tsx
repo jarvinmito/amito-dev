@@ -159,6 +159,8 @@ const WorksSection = () => {
                     component={NextImage}
                     src={p.image}
                     alt={p.imageAlt || "Thumbnail"}
+                    priority
+                    placeholder="blur"
                   />
                 </Card.Section>
                 <Stack pt="lg">
@@ -226,6 +228,8 @@ const WorksSection = () => {
                     src={selectedPortfolio.desktop}
                     alt={`${selectedPortfolio.title} for desktop`}
                     w="100%"
+                    priority
+                    placeholder="blur"
                   />
                 ) : (
                   <Image
@@ -233,6 +237,8 @@ const WorksSection = () => {
                     src={selectedPortfolio.mobile}
                     alt={`${selectedPortfolio.title} for mobile`}
                     w="100%"
+                    priority
+                    placeholder="blur"
                   />
                 )}
               </Box>
