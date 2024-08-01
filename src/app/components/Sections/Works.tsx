@@ -224,6 +224,7 @@ const WorksSection = () => {
               >
                 {viewMode === "desktop" ? (
                   <Image
+                    key="desktop"
                     component={NextImage}
                     src={selectedPortfolio.desktop}
                     alt={`${selectedPortfolio.title} for desktop`}
@@ -233,6 +234,7 @@ const WorksSection = () => {
                   />
                 ) : (
                   <Image
+                    key="mobile"
                     component={NextImage}
                     src={selectedPortfolio.mobile}
                     alt={`${selectedPortfolio.title} for mobile`}
