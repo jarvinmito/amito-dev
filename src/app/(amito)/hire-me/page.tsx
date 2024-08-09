@@ -1,4 +1,4 @@
-import HireMeSection from "@/components/Sections/HireMe";
+import HireMeSection from "@/app/components/Sections/HireMe";
 
 export const metadata = {
   title: "Products & Services",

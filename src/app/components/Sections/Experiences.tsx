@@ -10,8 +10,8 @@ import {
   Title,
   rem,
 } from "@mantine/core";
-import BrandTitle from "@/components/Branding/BrandTitle";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import { GUTTERS } from "@/app/lib/constants";
 import Link from "next/link";
 import { IconBuilding, IconBuildingArch } from "@tabler/icons-react";

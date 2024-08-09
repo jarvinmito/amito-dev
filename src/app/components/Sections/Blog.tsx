@@ -11,8 +11,8 @@ import {
 } from "@mantine/core";
 import { GUTTERS, GUTTERS_SMALL, ROUTES } from "@/app/lib/constants";
 import { IconNews } from "@tabler/icons-react";
-import BrandTitle from "@/components/Branding/BrandTitle";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 
 export interface IBlog {
   title: string;

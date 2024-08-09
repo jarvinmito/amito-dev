@@ -1,7 +1,7 @@
 "use client";
 
 import { GUTTERS } from "@/app/lib/constants";
-import BrandTitle from "@/components/Branding/BrandTitle";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
 import {
   Button,
   Container,
@@ -14,8 +14,8 @@ import {
 } from "@mantine/core";
 import { IconDevices, IconSend } from "@tabler/icons-react";
 import Link from "next/link";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
-import ConvertUISection from "@/components/Sections/Services/ConvertUI";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
+import ConvertUISection from "@/app/components/Sections/Services/ConvertUI";
 import MitotweeSection from "./Services/Mitotwee";
 import EmailServiceSection from "./Services/EmailService";
 

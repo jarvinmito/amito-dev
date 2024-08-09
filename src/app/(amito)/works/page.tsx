@@ -1,4 +1,4 @@
-import WorksSection from "@/components/Sections/Works";
+import WorksSection from "@/app/components/Sections/Works";
 
 export const metadata = {
   title: "My Works",

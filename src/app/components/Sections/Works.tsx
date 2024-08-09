@@ -18,8 +18,8 @@ import {
   rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import BrandTitle from "@/components/Branding/BrandTitle";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import { GUTTERS } from "@/app/lib/constants";
 
 import ThumbK from "@/public/images/thumbnail-k.png";
@@ -61,6 +61,18 @@ const WorksSection = () => {
   const [viewMode, setViewMode] = useState<"mobile" | "desktop">("desktop");
 
   const portfolio: Portfolio[] = [
+    {
+      title: (
+        <Group align="center" justify="space-between">
+          Bucket List App <IconExternalLink />
+        </Group>
+      ),
+      description:
+        "I created bucket list app. Achieving your goals should be fun.",
+      image: ThumbOC,
+      imageAlt: "Tackets",
+      link: "/apps/bucket-list",
+    },
     {
       title: "Unbranded Landing Page",
       description:
