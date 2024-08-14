@@ -63,21 +63,28 @@ const HireMeSection = () => {
         <Text>
           I offer{" "}
           <Text component="span" fw={700}>
-            Landing page design &amp; coding
+            Custom development
+          </Text>
+          {" from "}
+          <Text component="span" fw={700}>
+            Landing Pages
           </Text>
           {", "}
           <Text component="span" fw={700}>
-            Email template design &amp; coding
+            Email Templates
           </Text>
           {", "}
           <Text component="span" fw={700}>
-            Micro-apps (Software as a Service) development
+            Micro-SaaS (Software as a Service)
           </Text>{" "}
-          and{" "}
+          and standard{" "}
           <Text component="span" fw={700}>
-            Other web development service
-          </Text>
-          . Let me know if you have any questions, send my a message or just hit
+            Software or Web development
+          </Text>{" "}
+          service.
+        </Text>
+        <Text>
+          Let me know if you have any questions, send my a message or just hit
           the{" "}
           <Text component="span" fw={700}>
             Inquire

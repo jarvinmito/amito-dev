@@ -61,18 +61,18 @@ const WorksSection = () => {
   const [viewMode, setViewMode] = useState<"mobile" | "desktop">("desktop");
 
   const portfolio: Portfolio[] = [
-    {
-      title: (
-        <Group align="center" justify="space-between">
-          Bucket List App <IconExternalLink />
-        </Group>
-      ),
-      description:
-        "I created bucket list app. Achieving your goals should be fun.",
-      image: ThumbOC,
-      imageAlt: "Tackets",
-      link: "/apps/bucket-list",
-    },
+    // {
+    //   title: (
+    //     <Group align="center" justify="space-between">
+    //       Bucket List App <IconExternalLink />
+    //     </Group>
+    //   ),
+    //   description:
+    //     "I created bucket list app. Achieving your goals should be fun.",
+    //   image: ThumbOC,
+    //   imageAlt: "Tackets",
+    //   link: "/apps/bucket-list",
+    // },
     {
       title: "Unbranded Landing Page",
       description:
@@ -155,6 +155,11 @@ const WorksSection = () => {
     <Container size="sm" mx={0} px={0} pb={GUTTERS}>
       <Stack gap="xl">
         <BrandTitle text="My Recent Works" />
+        <Text>
+          All my works here are from concepts and potential freelance.
+          Experience works are NDAs in nature, but I will add articles about
+          them soon.
+        </Text>
         <Grid columns={2} gutter={30}>
           {portfolio.map((p, pi) => (
             <Grid.Col key={`portfolio-${pi}`} span={{ base: 2, md: 1 }}>
