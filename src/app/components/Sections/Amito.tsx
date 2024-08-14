@@ -29,15 +29,7 @@ const AmitoSection = () => {
             data-aos-delay="100"
           >
             <TypeAnimation
-              sequence={[
-                "Landing Pages",
-                1200,
-                "Email Templates",
-                1200,
-                "Ship micro SaaS",
-                1200,
-                "Frontend Developer",
-              ]}
+              sequence={["Frontend Developer"]}
               speed={30}
               cursor={true}
               preRenderFirstString

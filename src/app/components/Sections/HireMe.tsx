@@ -1,7 +1,7 @@
 "use client";
 
 import { GUTTERS } from "@/app/lib/constants";
-import BrandTitle from "@/components/Branding/BrandTitle";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
 import {
   Button,
   Container,
@@ -14,8 +14,8 @@ import {
 } from "@mantine/core";
 import { IconDevices, IconSend } from "@tabler/icons-react";
 import Link from "next/link";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
-import ConvertUISection from "@/components/Sections/Services/ConvertUI";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
+import ConvertUISection from "@/app/components/Sections/Services/ConvertUI";
 import MitotweeSection from "./Services/Mitotwee";
 import EmailServiceSection from "./Services/EmailService";
 
@@ -63,21 +63,28 @@ const HireMeSection = () => {
         <Text>
           I offer{" "}
           <Text component="span" fw={700}>
-            Landing page design &amp; coding
+            Custom development
+          </Text>
+          {" from "}
+          <Text component="span" fw={700}>
+            Landing Pages
           </Text>
           {", "}
           <Text component="span" fw={700}>
-            Email template design &amp; coding
+            Email Templates
           </Text>
           {", "}
           <Text component="span" fw={700}>
-            Micro-apps (Software as a Service) development
+            Micro-SaaS (Software as a Service)
           </Text>{" "}
-          and{" "}
+          and standard{" "}
           <Text component="span" fw={700}>
-            Other web development service
-          </Text>
-          . Let me know if you have any questions, send my a message or just hit
+            Software or Web development
+          </Text>{" "}
+          service.
+        </Text>
+        <Text>
+          Let me know if you have any questions, send my a message or just hit
           the{" "}
           <Text component="span" fw={700}>
             Inquire

@@ -5,7 +5,10 @@ import { remark } from "remark";
 import html from "remark-html";
 
 // Your markdown folder for posts.
-const markdownDirectory = path.join(process.cwd(), "./src/app/blog/contents");
+const markdownDirectory = path.join(
+  process.cwd(),
+  "./src/app/(amito)/blog/contents"
+);
 
 // const files = fs.readdirSync(markdownDirectory);
 

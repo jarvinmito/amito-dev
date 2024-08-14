@@ -3,6 +3,7 @@ import {
   Anchor,
   Box,
   Container,
+  List,
   Stack,
   Text,
   ThemeIcon,
@@ -10,11 +11,15 @@ import {
   Title,
   rem,
 } from "@mantine/core";
-import BrandTitle from "@/components/Branding/BrandTitle";
-import ScrollUp from "@/components/ScrollUp/ScrollUp";
+import BrandTitle from "@/app/components/Branding/BrandTitle";
+import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import { GUTTERS } from "@/app/lib/constants";
 import Link from "next/link";
-import { IconBuilding, IconBuildingArch } from "@tabler/icons-react";
+import {
+  IconBuilding,
+  IconBuildingArch,
+  IconCircle,
+} from "@tabler/icons-react";
 
 const ExperiencesSection = () => {
   const exp = [
@@ -30,9 +35,9 @@ const ExperiencesSection = () => {
       location: "Singapore, Singapore · Remote",
       description: [
         "Our purpose is to help Web3 investors in their token management by automating token vesting and distribution.",
-        "Collaborated closely with design and development teams to deliver all front-end elements of the marketing website.",
-        "My role focused on creating a compelling UI and enhancing the web app's overall user experience.",
-        "Improved development efficiency by automating our repository workflows.",
+        "Developed marketing website with integrated feature polling, podcast previews and blogs.",
+        "Created compelling UI and enhanced web app's overall UX.",
+        "Improved development and testing efficiency by workflow automations.",
       ],
     },
     {
@@ -46,8 +51,9 @@ const ExperiencesSection = () => {
       date: "Dec 2021 - Sep 2022 · 10 mos",
       location: "Sydney, New South Wales, Australia · Remote",
       description: [
-        "Off-shore Frontend Engineer responsible for Mable's Web and Mobile application tailored for Support worker industry in Australia.",
-        "Looking after all features and providing responsive and highly accessible user interface.",
+        "Developed highly accessible components to Mable’s platform with KISS and DRY practices.",
+        "Design and architect components based on function + brand.",
+        "Fix different types of issues from technical, improvements to accessibility.",
       ],
     },
     {
@@ -61,8 +67,9 @@ const ExperiencesSection = () => {
       date: "Jan 2020 - Jun 2021 · 1 yr 6 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Trained and Certified Solutions Architect (AWS SolArch Associate).",
-        "Solutions Architect for an OTT (over-the-top) Platform offering video streaming service to Philippine market.",
+        "Acquired AWS SolArch Associate Certificate.",
+        "Provided solutions to a Cinema Ticketing App.",
+        "Contribute solutions to transitioning the Cinema Ticketing App into an over-the-top video streaming platform.",
       ],
     },
     {
@@ -76,8 +83,9 @@ const ExperiencesSection = () => {
       date: "Feb 2017 - Dec 2019 · 2 yrs 11 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Lead the front-end development aspect for delivering WiFi Captive Portal Platform that serves multiple businesses offering wifi captive portals in their establishments.",
-        "My best work and solution for white-label and custom captive portals using configuration-based theming which make development, testing and deployment of captive portals swift and requires less effort than the previous process.",
+        "Lead front-end developers in delivering WiFi portal UIs.",
+        "Collaborate with stakeholders in assessing WiFi portal feasibility due to limitations.",
+        "Developed config-based theming and connection of WiFi portals in AWS.",
       ],
     },
     {
@@ -91,10 +99,9 @@ const ExperiencesSection = () => {
       date: "Oct 2016 - Feb 2017 · 5 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Acted as an officer-in-charge as a User Experience Design Team Capability Lead to serve our ongoing projects.",
-        "Review Technical Pre-sales estimates on their proposals.",
-        "Monitor team utilization to ensure resources are always productive.",
-        "Responsible for other front-end development tasks",
+        "Review project dev estimates for Tech pre-sales team.",
+        "Ensure team resources are always productive.",
+        "Handle UX/UI Designer and Front-end Development roles.",
       ],
     },
     {
@@ -108,9 +115,9 @@ const ExperiencesSection = () => {
       date: "Oct 2015 - Oct 2016 · 1 yr 1 mo",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Cross-functional role with a purpose to deliver on the agreed timeline.",
-        "Created wireframes, mockups or storyboard for different projects.",
-        "Convert mockups into a working responsive design code.",
+        "Create wireframes, mockups or storyboard for different projects.",
+        "Convert mock-ups into a working code within the agreed timeline.",
+        "API integrations to custom software development.",
       ],
     },
     {
@@ -156,10 +163,10 @@ const ExperiencesSection = () => {
       date: "Jun 2010 - Jul 2013 · 3 yrs 2 mos",
       location: "Philippines · On-site",
       description: [
-        "Serving local personalities in the Philippines to deliver their personal website",
-        "Convert UI to responsive front-end code.",
-        "Create custom content management features.",
-        "Provide graphic design services.",
+        "Responsible for integrating front-end layout to actual website in order to meet expected results.",
+        "Create custom back-end features based on client request or the distinction of the project.",
+        "Study for brainstormed project ideas within the team.",
+        "Conduct research for development and its usability.",
       ],
     },
     {
@@ -232,11 +239,28 @@ const ExperiencesSection = () => {
                   </Text>
                 </Box>
                 <Stack gap="xs" pb="xl">
-                  {xp.description.map((desc, descIndex) => (
-                    <Text key={`description-${descIndex}-${xpIndex}`}>
-                      {desc}
-                    </Text>
-                  ))}
+                  <List
+                    center={true}
+                    spacing="lg"
+                    icon={
+                      <ThemeIcon
+                        variant="transparent"
+                        color="black"
+                        size={rem(10)}
+                      >
+                        <IconCircle />
+                      </ThemeIcon>
+                    }
+                  >
+                    {xp.description.map((desc, descIndex) => (
+                      <List.Item
+                        key={`description-${descIndex}-${xpIndex}`}
+                        lh="sm"
+                      >
+                        {desc}
+                      </List.Item>
+                    ))}
+                  </List>
                 </Stack>
               </Stack>
             </Timeline.Item>
