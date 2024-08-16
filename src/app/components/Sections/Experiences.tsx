@@ -81,9 +81,10 @@ const ExperiencesSection = () => {
       location: "BGC Taguig, Philippines · On-site",
       description: [
         "Led Front End Developers in delivering WiFi captive portal interfaces.",
-        "Engaged with stakeholders in assessing WiFi captive portal front end feasibility due to limitations.",
+        // "Engaged with stakeholders in assessing WiFi captive portal front end feasibility due to limitations.",
         "Produced a config-based theming and connection of WiFi portals in AWS.",
         "Spearheaded use of Vue.JS for new projects.",
+        "Implemented numerous projects with responsive, user-friendly interfaces that integrates seamlessly with backend APIs.",
       ],
     },
     {
