@@ -1,6 +1,5 @@
 "use client";
 import {
-  Anchor,
   Box,
   Container,
   List,
@@ -15,11 +14,7 @@ import BrandTitle from "@/app/components/Branding/BrandTitle";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import { GUTTERS } from "@/app/lib/constants";
 import Link from "next/link";
-import {
-  IconBuilding,
-  IconBuildingArch,
-  IconCircle,
-} from "@tabler/icons-react";
+import { IconBuilding, IconCircle } from "@tabler/icons-react";
 
 const ExperiencesSection = () => {
   const exp = [
@@ -35,9 +30,11 @@ const ExperiencesSection = () => {
       location: "Singapore, Singapore · Remote",
       description: [
         "Our purpose is to help Web3 investors in their token management by automating token vesting and distribution.",
-        "Developed marketing website with integrated feature polling, podcast previews and blogs.",
-        "Created compelling UI and enhanced web app's overall UX.",
-        "Improved development and testing efficiency by workflow automations.",
+        "Implemented marketing website designed for web3 with integrated features.",
+        "Created compelling UI and enhanced web app's overall user experience.",
+        "Integrated with web3 features such as smart contracts for vesting and claiming using NextJS, web3-react and ethers.js.",
+        "Improved overall development and testing efficiency by implementing workflow automations.",
+        "Successfully launched the platform in a highly agile environment, earning recognition from our investors.",
       ],
     },
     {
@@ -51,9 +48,9 @@ const ExperiencesSection = () => {
       date: "Dec 2021 - Sep 2022 · 10 mos",
       location: "Sydney, New South Wales, Australia · Remote",
       description: [
-        "Developed highly accessible components to Mable’s platform with KISS and DRY practices.",
-        "Design and architect components based on function + brand.",
-        "Fix different types of issues from technical, improvements to accessibility.",
+        "Crafted highly accessible components advocating KISS and DRY practices.",
+        "Designed and architected components based on function and brand.",
+        "Fixed different types of issues like bugs, improvements and accessibility. ",
       ],
     },
     {
@@ -67,9 +64,9 @@ const ExperiencesSection = () => {
       date: "Jan 2020 - Jun 2021 · 1 yr 6 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Acquired AWS SolArch Associate Certificate.",
-        "Provided solutions to a Cinema Ticketing App.",
-        "Contribute solutions to transitioning the Cinema Ticketing App into an over-the-top video streaming platform.",
+        "Studied and acquired AWS SolArch Associate Certificate.",
+        "Designed solutions for a cinema mobile app.",
+        "Transitioned cinema mobile app into an over-the-top video streaming platform.",
       ],
     },
     {
@@ -83,9 +80,10 @@ const ExperiencesSection = () => {
       date: "Feb 2017 - Dec 2019 · 2 yrs 11 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Lead front-end developers in delivering WiFi portal UIs.",
-        "Collaborate with stakeholders in assessing WiFi portal feasibility due to limitations.",
-        "Developed config-based theming and connection of WiFi portals in AWS.",
+        "Led Front End Developers in delivering WiFi captive portal interfaces.",
+        "Engaged with stakeholders in assessing WiFi captive portal front end feasibility due to limitations.",
+        "Produced a config-based theming and connection of WiFi portals in AWS.",
+        "Spearheaded use of Vue.JS for new projects.",
       ],
     },
     {
@@ -99,9 +97,9 @@ const ExperiencesSection = () => {
       date: "Oct 2016 - Feb 2017 · 5 mos",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Review project dev estimates for Tech pre-sales team.",
-        "Ensure team resources are always productive.",
-        "Handle UX/UI Designer and Front-end Development roles.",
+        "Review project development estimates for Tech pre-sales team adding increased project contracts.",
+        "Track team resources and project management ensuring team efficiency.",
+        "Managed UX/UI Design and Front End Development roles.",
       ],
     },
     {
@@ -115,9 +113,9 @@ const ExperiencesSection = () => {
       date: "Oct 2015 - Oct 2016 · 1 yr 1 mo",
       location: "BGC Taguig, Philippines · On-site",
       description: [
-        "Create wireframes, mockups or storyboard for different projects.",
-        "Convert mock-ups into a working code within the agreed timeline.",
-        "API integrations to custom software development.",
+        "Created wireframes, mockups or storyboard for custom development projects.",
+        "Converted mock-ups into working web page / app within agreed timelines.",
+        "Constructed Front End Development workflow using Grunt (early days of web development automations).",
       ],
     },
     {
