@@ -43,7 +43,7 @@ const MitotweeSection = () => {
         tailored for sari-sari store or mini stores.
       </Text>
       <Stack gap="xs">
-        <Text size="lg">Pricing</Text>
+        <h4 className="anaglyph">Pricing</h4>
         <SimpleGrid cols={{ base: 1, xs: 2 }}>
           {pricing.map((price, priceIndex) => (
             <Card
@@ -69,7 +69,7 @@ const MitotweeSection = () => {
                     {price.discount ? (
                       <Badge
                         size="lg"
-                        color="lime"
+                        color="red"
                         variant="gradient"
                         gradient={{ from: "orange", to: "yellow" }}
                       >
@@ -126,7 +126,6 @@ const MitotweeSection = () => {
           href="https://mitotwee.com"
           target="_blank"
           fw={700}
-          c="orange"
         >
           Mitotwee
         </Anchor>{" "}

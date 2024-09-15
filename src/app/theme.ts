@@ -7,6 +7,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const theme = createTheme({
+  black: "#131319",
+  white: "#fefefe",
+  primaryColor: "lime",
   fontFamily: spaceGrotesk.style.fontFamily || "Space Grotesk, sans-serif",
   headings: {
     fontFamily: spaceGrotesk.style.fontFamily || "Space Grotesk, sans-serif",

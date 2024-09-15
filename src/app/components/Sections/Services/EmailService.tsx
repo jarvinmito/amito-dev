@@ -99,7 +99,7 @@ const EmailServiceSection = () => {
                     {price.discount ? (
                       <Badge
                         size="lg"
-                        color="lime"
+                        color="red"
                         variant="gradient"
                         gradient={{ from: "orange", to: "yellow" }}
                       >

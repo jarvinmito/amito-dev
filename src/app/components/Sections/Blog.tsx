@@ -13,6 +13,7 @@ import { GUTTERS, GUTTERS_SMALL, ROUTES } from "@/app/lib/constants";
 import { IconNews } from "@tabler/icons-react";
 import BrandTitle from "@/app/components/Branding/BrandTitle";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
+import HackedText from "@/components/Branding/Cyberpunk/HackedText";
 
 export interface IBlog {
   title: string;
@@ -50,9 +51,11 @@ const BlogSection = () => {
   ];
 
   return (
-    <Container size="sm" px={0} mx={0} pb={GUTTERS}>
+    <div className="container max-w-3xl mx-auto py-12">
       <Stack justify="center" gap={GUTTERS_SMALL}>
-        <BrandTitle>Recent activities</BrandTitle>
+        <h2 className="uppercase">
+          <HackedText text="Blog" />
+        </h2>
         <Stack>
           <Timeline bulletSize={48} lineWidth={1} color="black">
             {blogList.map((blog, blogIndex) => (
@@ -73,14 +76,15 @@ const BlogSection = () => {
                   <Anchor
                     component={Link}
                     href={`${ROUTES.LANDING.BLOG}/${blog.filename}`}
+                    c="white"
                   >
-                    <Text size="lg" c="dark" lh={1}>
+                    <Text size="lg" lh={1}>
                       {blog.title}
                     </Text>
                   </Anchor>
                   <Stack>
-                    <Text c="dimmed">{blog.publish_date}</Text>
-                    <Text c="dark.4">{blog.description}</Text>
+                    <Text className="text-gray-400">{blog.publish_date}</Text>
+                    <Text className="text-gray-500">{blog.description}</Text>
                   </Stack>
                 </Stack>
               </Timeline.Item>
@@ -89,7 +93,7 @@ const BlogSection = () => {
         </Stack>
       </Stack>
       <ScrollUp />
-    </Container>
+    </div>
   );
 };
 

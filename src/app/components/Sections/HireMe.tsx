@@ -3,7 +3,6 @@
 import { GUTTERS } from "@/app/lib/constants";
 import BrandTitle from "@/app/components/Branding/BrandTitle";
 import {
-  Button,
   Container,
   Stack,
   Text,
@@ -18,6 +17,8 @@ import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import ConvertUISection from "@/app/components/Sections/Services/ConvertUI";
 import MitotweeSection from "./Services/Mitotwee";
 import EmailServiceSection from "./Services/EmailService";
+import HackedText from "@/components/Branding/Cyberpunk/HackedText";
+import Button from "@/components/Branding/Cyberpunk/Button";
 
 const HireMeSection = () => {
   const services = [
@@ -38,28 +39,18 @@ const HireMeSection = () => {
       description: (
         <Stack align="flex-start">
           <Text>Hire me as a frontend developer on your team.</Text>
-          <Button
-            component={Link}
-            href="https://forms.gle/Lvb8oRA3r9RzmFvR9"
-            target="_blank"
-            color="black"
-            radius="xl"
-            size="md"
-            variant="light"
-            h={48}
-            rightSection={<IconSend />}
-          >
-            Send me a message
-          </Button>
+          <Button>Connect</Button>
         </Stack>
       ),
     },
   ];
 
   return (
-    <Container size="sm" mx={0} px={0} pb={GUTTERS}>
+    <div className="container max-w-3xl mx-auto py-12">
       <Stack gap="xl">
-        <BrandTitle text="Products & Services" />
+        <h2 className="uppercase">
+          <HackedText text="Products & Services" />
+        </h2>
         <Text>
           I offer{" "}
           <Text component="span" fw={700}>
@@ -96,15 +87,7 @@ const HireMeSection = () => {
             <Timeline.Item
               title={
                 <Title order={2} lh={1} pt={5} pb="lg">
-                  <Text
-                    size="lg"
-                    lh={1}
-                    fw={700}
-                    variant="gradient"
-                    gradient={{ from: "black", to: "white" }}
-                  >
-                    {service.title}
-                  </Text>
+                  <p className="anaglyph">{service.title}</p>
                 </Title>
               }
               bullet={
@@ -120,7 +103,7 @@ const HireMeSection = () => {
         </Timeline>
       </Stack>
       <ScrollUp />
-    </Container>
+    </div>
   );
 };
 
