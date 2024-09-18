@@ -54,33 +54,43 @@ export default function CyberpunkHomePage() {
         className="container min-h-screen mx-auto flex flex-col justify-center gap-8 py-10 px-5 xl:px-0"
         data-aos="fade-up"
       >
-        <p className="text-5xl">
-          I create{" "}
-          <span
-            className="font-quattro"
+        <div className="max-w-5xl flex flex-col gap-6">
+          <p className="text-4xl">
+            I create{" "}
+            <span
+              className="font-quattro text-violet-600 font-bold"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              &lt;websites /&gt;
+            </span>{" "}
+            and{" "}
+            <span
+              className="font-quattro text-violet-600 font-bold"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              &lt;web-apps /&gt;
+            </span>
+          </p>
+          <p
+            className="text-4xl leading-normal"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-delay="300"
           >
-            &lt;websites /&gt;
-          </span>{" "}
-          and{" "}
-          <span
-            className="font-quattro"
+            with seamless user interfaces that integrate smoothly with backend
+            APIs.
+          </p>
+          <p
+            className="text-4xl leading-normal"
             data-aos="fade-up"
-            data-aos-delay="200"
+            data-aos-delay="400"
           >
-            &lt;web-apps /&gt;
-          </span>
-        </p>
-        <p className="text-xl" data-aos="fade-up" data-aos-delay="300">
-          with seamless user interfaces that integrate smoothly with backend
-          APIs.
-        </p>
-        <p>
-          Crafting solutions for business needs while being a practitioner of
-          writing clean, testable, reusable code and leveraging diverse design
-          patterns.
-        </p>
+            Crafting solutions for business needs while being a practitioner of
+            writing clean, testable, reusable code and leveraging diverse design
+            patterns.
+          </p>
+        </div>
       </section>
       <section className="container min-h-screen mx-auto flex flex-col gap-10 py-10 px-5 xl:px-0">
         <div data-aos="fade-up">
