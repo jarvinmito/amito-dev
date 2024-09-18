@@ -8,6 +8,8 @@ import { MantineProvider } from "@mantine/core";
 import theme from "@/theme";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
+import GoogleAdSense from "./components/External/GoogleAdSense";
+import { GOOGLE_ADSENSE_ID } from "./lib/utils/constants";
 
 export default function RootLayout({
   children,
@@ -34,6 +36,7 @@ export default function RootLayout({
           <main>{children}</main>
         </MantineProvider>
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+        <GoogleAdSense pId={GOOGLE_ADSENSE_ID} />
       </body>
       {/* </MantineProvider> */}
     </html>

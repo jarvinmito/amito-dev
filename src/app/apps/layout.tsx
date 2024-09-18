@@ -3,8 +3,9 @@ import { Box } from "@mantine/core";
 import { PADDING } from "@/app/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Bucket List",
-  description: "Be fulfilled by checking your bucket list",
+  title: "Amito Apps",
+  description:
+    "Need something done? Checkout some of my tools here that might help you.",
 };
 
 export default function AppsLayout({

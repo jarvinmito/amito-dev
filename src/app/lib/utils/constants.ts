@@ -1,0 +1,1 @@
+export const GOOGLE_ADSENSE_ID = "8650552707754602";
