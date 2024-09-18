@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Box, Center, MantineProvider } from "@mantine/core";
-import "@/app/globals.css";
-import "@mantine/core/styles.css";
-import "@mantine/carousel/styles.css";
-import theme from "@/app/theme";
-import FloatingNavigator from "@/app/components/FloatingNavigator";
-import { GOOGLE_ANALYTICS_ID, PADDING } from "@/app/lib/constants";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { Box } from "@mantine/core";
+import { PADDING } from "@/app/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Bucket List",
-  description: "Be fulfilled by checking your bucket list",
+  title: "Amito Apps",
+  description:
+    "Need something done? Checkout some of my tools here that might help you.",
 };
 
 export default function AppsLayout({

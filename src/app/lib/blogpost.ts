@@ -7,7 +7,7 @@ import html from "remark-html";
 // Your markdown folder for posts.
 const markdownDirectory = path.join(
   process.cwd(),
-  "./src/app/(amito)/blog/contents"
+  "./src/app/(amito)/(v2)/blog/contents"
 );
 
 // const files = fs.readdirSync(markdownDirectory);

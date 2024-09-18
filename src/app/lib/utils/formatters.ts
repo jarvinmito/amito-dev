@@ -16,6 +16,10 @@ export const formatNumber = (
   return `${noCurrency ? "" : currency}${formattedNumber}`;
 };
 
+// Shortcut number formatting
+export const formatNum = (num: number) =>
+  formatNumber(num, 2, false, CURRENCIES.PHP);
+
 /** This function generates a random string with a variable length */
 export const generateRandomString = (length = 9, prefix = ""): string => {
   const characters =

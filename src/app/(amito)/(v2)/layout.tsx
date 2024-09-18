@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ParallaxContextProvider } from "@/lib/context/parallax.context";
 
 export const metadata: Metadata = {
   title: "Amito",
@@ -12,9 +11,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <ParallaxContextProvider>
-      <div className="w-full min-h-screen pb-6">{children}</div>
-    </ParallaxContextProvider>
-  );
+  return <>{children}</>;
 }

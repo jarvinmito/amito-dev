@@ -20,14 +20,15 @@ const ScrollUp = () => {
   return (
     <Affix
       position={{
-        bottom: isOnBigScreen ? GUTTERS : GUTTERS_SMALL,
-        left: isOnBigScreen ? GUTTERS : GUTTERS_SMALL,
+        bottom: 310,
+        right: isOnBigScreen ? GUTTERS : GUTTERS_SMALL,
       }}
     >
       <Transition transition="slide-up" mounted={scroll.y > 600}>
         {(transitionStyle) => (
           <Button
-            color="black"
+            color="lime.5"
+            variant="light"
             size="md"
             radius="xl"
             pl={11}

@@ -1,8 +1,10 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import {
+  Anchor,
   Button,
   Container,
+  Group,
   Stack,
   Text,
   TypographyStylesProvider,
@@ -14,6 +16,7 @@ import { getPostData } from "@/app/lib/blogpost";
 import { GUTTERS, GUTTERS_SMALL, PADDING, ROUTES } from "@/app/lib/constants";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import BrandTitle from "@/app/components/Branding/BrandTitle";
+import HackedText from "@/app/components/Branding/Cyberpunk/HackedText";
 
 type Props = {
   params: { post: string };
@@ -40,29 +43,34 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <TypographyStylesProvider>
-      <Container size="sm" mx={0} px={0} pb={GUTTERS}>
+      <section className="container min-h-screen max-w-3xl mx-auto flex flex-col justify-start gap-8 py-10 px-5 xl:px-0">
         <Stack
           gap={GUTTERS_SMALL}
           align="flex-start"
           pb={GUTTERS}
           component="article"
         >
-          <Button
+          <Anchor
             component={Link}
             href={ROUTES.LANDING.BLOG}
             variant="transparent"
-            leftSection={
-              <IconArrowLeft style={{ height: rem(36), width: rem(36) }} />
-            }
+            c="gray.6"
           >
-            <Text>Back to blogs</Text>
-          </Button>
-          <BrandTitle>{postData.title}</BrandTitle>
-          <Text>{postData.publish_date}</Text>
+            <Group>
+              <IconArrowLeft style={{ height: rem(28), width: rem(28) }} />
+              <Text>
+                <HackedText text="Back to blog" anaglyphOff />
+              </Text>
+            </Group>
+          </Anchor>
+          <div>
+            <h2 className="anaglyph">{postData.title}</h2>
+            <Text c="gray.5">{postData.publish_date}</Text>
+          </div>
 
           <ReactMarkdown>{postData.content}</ReactMarkdown>
         </Stack>
-      </Container>
+      </section>
       <ScrollUp />
     </TypographyStylesProvider>
   );
