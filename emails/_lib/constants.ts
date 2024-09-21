@@ -1,6 +1,6 @@
 export const BASE_URL = "https://assets.amito.dev";
 export const GET_CLIENT_ASSETS = (name: string) => {
-  const CLIENT_FOLDER = `${BASE_URL}/portfolio/${name}`;
+  const CLIENT_FOLDER = `${BASE_URL}/projects/${name}`;
   const CLIENT_FONTS = `${CLIENT_FOLDER}/fonts`;
   const CLIENT_IMAGES = `${CLIENT_FOLDER}/images`;
   return { CLIENT_FOLDER, CLIENT_FONTS, CLIENT_IMAGES };
