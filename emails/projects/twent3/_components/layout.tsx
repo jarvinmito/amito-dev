@@ -44,43 +44,41 @@ interface LayoutTemplateProps {
   bannerText?: string | JSX.Element;
   children?: React.ReactNode;
   data?: any;
+  version?: 1 | 2;
 }
-
-const gmail = "https://gmail.com/";
-const linkedin = "https://linkedin.com/";
-const instagram = "https://instagram.com/";
 
 export const LayoutTemplate = ({
   previewText,
   bannerText,
   children,
   data,
+  version = 1,
 }: LayoutTemplateProps) => {
   const assets = GET_CLIENT_ASSETS("twent3");
   const socialLinks = [
     {
       name: "x",
-      link: data.socialXLink,
+      link: "https://twitter.com/twent_3",
       image: `${assets.CLIENT_IMAGES}/brand-x.png`,
     },
     {
       name: "facebook",
-      link: data.socialFacebookLink,
+      link: "https://www.facebook.com/TwenT33D/",
       image: `${assets.CLIENT_IMAGES}/brand-facebook.png`,
     },
     {
       name: "youtube",
-      link: data.socialYoutubeLink,
+      link: "https://www.youtube.com/channel/UCBZLo5lr5FCB5SRVBVdjdBA",
       image: `${assets.CLIENT_IMAGES}/brand-youtube.png`,
     },
     {
       name: "pinterest",
-      link: data.socialPinterestLink,
+      link: "https://www.pinterest.co.uk/TwenT3/",
       image: `${assets.CLIENT_IMAGES}/brand-pinterest.png`,
     },
     {
       name: "instagram",
-      link: data.socialInstagramLink,
+      link: "https://www.instagram.com/twent3/?hl=en",
       image: `${assets.CLIENT_IMAGES}/brand-instagram.png`,
     },
   ];
@@ -115,27 +113,20 @@ export const LayoutTemplate = ({
         </Head>
         <Body className="mx-auto py-10 lg:px-10 m-0 font-sans bg-gray-200">
           <Preview>{previewText!}</Preview>
+          <Container>
+            <Text className="text-center text-sm text-gray-500">
+              If you can&apos;t read this email,{" "}
+              <Link href={data.viewInBrowserLink} className="">
+                View web version
+              </Link>
+            </Text>
+          </Container>
           <Container className="w-full max-w-[700px] mx-auto">
             <Row className="w-full max-w-[700px] pb-2">
               <Column className="text-right">
-                <Link
-                  href={data.unsubscribeLink}
-                  className="mr-6 text-xs text-gray-500"
-                >
-                  Unsubscribe
-                </Link>
-                <Link
-                  href={data.viewInBrowserLink}
-                  className="text-xs text-gray-500"
-                >
-                  View in browser
-                </Link>
+                <div></div>
+                <div></div>
               </Column>
-            </Row>
-            <Row>
-              <Column>&nbsp;</Column>
-              <Column className="w-[110px] bg-white"></Column>
-              <Column>&nbsp;</Column>
             </Row>
             <Row className="w-full max-w-[700px]">
               <Column>
@@ -143,27 +134,54 @@ export const LayoutTemplate = ({
                   <Container
                     className="w-full max-w-[700px] bg-cover bg-center"
                     style={{
-                      backgroundImage: `url("${assets.CLIENT_IMAGES}/twent3-lenticular-bg.png")`,
+                      backgroundImage: `url("${assets.CLIENT_IMAGES}/${
+                        version === 1
+                          ? "twent3-lenticular-bg"
+                          : "lenticular-bg-2-min"
+                      }.png")`,
                     }}
                   >
                     <Row>
                       <Column>&nbsp;</Column>
                       <Column className="w-[110px] h-[122px]">
-                        <Img
-                          src={`${assets.CLIENT_IMAGES}/twent3-logo.png`}
-                          width="110"
-                          height="122"
-                          alt="Twent3 logo"
-                        />
+                        <Link href="https://twent3.co.uk" title="Twent3">
+                          <Img
+                            src={`${assets.CLIENT_IMAGES}/twent3-logo.png`}
+                            width="110"
+                            height="122"
+                            alt="Twent3 logo"
+                          />
+                        </Link>
                       </Column>
                       <Column>&nbsp;</Column>
                     </Row>
                     <Row>
-                      <Column className="py-10">{bannerText}</Column>
+                      <Column>
+                        <Text className="mx-auto text-center text-sm text-gray-100">
+                          Not Interested? No Worries 👉{" "}
+                          <Link
+                            href={data.unsubscribeLink}
+                            className="cursor-pointer text-gray-200"
+                          >
+                            Unsubscribe here
+                          </Link>
+                        </Text>
+                      </Column>
                     </Row>
+                    {version === 1 ? (
+                      <Row>
+                        <Column className="py-10">{bannerText}</Column>
+                      </Row>
+                    ) : (
+                      <Row>
+                        <Column>{children}</Column>
+                      </Row>
+                    )}
                   </Container>
 
-                  <Section className="pb-10">{children}</Section>
+                  {version === 1 ? (
+                    <Section className="pb-10">{children}</Section>
+                  ) : null}
                 </Container>
               </Column>
             </Row>
@@ -182,10 +200,44 @@ export const LayoutTemplate = ({
                       target="_blank"
                       className="text-gray-500 text-xs inline-flex justify-center align-center p-1.5"
                     >
-                      <Img src={social.image} alt={social.name} width={24} />
+                      <Img src={social.image} alt={social.name} width={28} />
                     </Link>
                   </Column>
                 ))}
+              </Row>
+              <Row className="mt-8">
+                <Column className="px-6">
+                  <Text className="text-xs text-center m-0 text-gray-400">
+                    TwenT3 - Chantry Road Marden Tonbridge - TN12-9HT- England
+                    UK
+                  </Text>
+                  <Text className="text-xs text-center m-0 mb-4 text-gray-400">
+                    <Link href="https://twent3.co.uk">www.twent3.co.uk</Link> -{" "}
+                    <Link href="mailto:info@twent3.co.uk?subject=Email us any questions">
+                      info@twent3.co.uk
+                    </Link>
+                  </Text>
+                  <Text className="text-xs text-center m-0 text-gray-400">
+                    We sent out this message as you may have shown an interest
+                    in TwenT3's products or services.
+                  </Text>
+                  <Text className="text-xs text-center m-0 mb-4 text-gray-400">
+                    If you want more information about our privacy policy,
+                    please visit{" "}
+                    <Link href="https://twent3.co.uk/pages/privacy-policy">
+                      this page
+                    </Link>
+                    .
+                  </Text>
+                  <Text className="text-xs text-center m-0 mb-4 text-gray-400">
+                    If you no longer wish to receive these emails, don't panic,
+                    simply{" "}
+                    <Link href={data.unsubscribeLink}>[unsubscribe]</Link>.
+                  </Text>
+                  <Text className="text-xs text-center m-0 text-gray-400">
+                    ©2024 TwenT3. All rights reserved.
+                  </Text>
+                </Column>
               </Row>
             </Container>
           </Container>

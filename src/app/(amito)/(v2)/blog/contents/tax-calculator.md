@@ -11,10 +11,6 @@ Compute my taxes and contributions. This app will help in identifying where port
 - Enter current monthly gross income.
 - It will automatically compute everything, from my contributions to taxes, as well as my take home pay.
 
-### Understanding how to compute tax
-
-Ready to ditch the accounting headaches and embrace the 21st century?
-
 ### Upcoming updates
 
 - Tax table and contribution table highlighter -- to show where in the tables I fall at and why.
