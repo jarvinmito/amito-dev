@@ -94,7 +94,7 @@ export default function CyberpunkHomePage() {
       </section>
       <section className="container min-h-screen mx-auto flex flex-col gap-10 py-10 px-5 xl:px-0">
         <div data-aos="fade-up">
-          <SectionTitle title="Work Experience" />
+          <SectionTitle title="Experience" />
         </div>
         <ListingExperiences />
       </section>

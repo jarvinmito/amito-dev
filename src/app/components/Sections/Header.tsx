@@ -31,7 +31,7 @@ const Header = ({ children }: AllHTMLAttributes<HTMLAllCollection>) => {
             </div>
             <div className="col-span-7 xl:col-span-6 text-center px-1 xl:px-0">
               <p className="text-xs flex flex-row flex-wrap gap-x-2 justify-center items-center">
-                Available to work{" "}
+                Available for business{" "}
                 <span
                   aria-hidden
                   className="flex bg-lime-400 rounded-full h-2 w-2 relative before:absolute before:-inset-px before:content-[''] before:rounded-full before:h-2.5 before:w-2.5 before:bg-lime-400 before:animate-ping"

@@ -2,8 +2,10 @@
 
 import { formatNum } from "@/app/lib/utils/formatters";
 import {
+  Anchor,
   Container,
   Fieldset,
+  Group,
   NumberInput,
   SimpleGrid,
   Stack,
@@ -11,6 +13,8 @@ import {
 } from "@mantine/core";
 import { useMemo, useState } from "react";
 import SSSTable, { findSSSContribution } from "./SSSTable";
+import Link from "next/link";
+import { ROUTES } from "@/app/lib/constants";
 
 enum TAX_VALUES {
   TIER1 = 0,
@@ -87,7 +91,7 @@ const getPagIbigTier = (amount: number) => {
   return PI_VALUES.TIER1;
 };
 
-export default function TaxCalculator() {
+export default function TaxCalculator({ children }: any) {
   // Set income, will come from user input or 0
   const [income, setIncome] = useState<string | number>("");
   const [allowDeductions, setAllowDeductions] = useState(true);
@@ -141,10 +145,15 @@ export default function TaxCalculator() {
   console.log("SSS Contribution", sssContribution);
 
   return (
-    <Container fluid mx="auto">
-      <h1 className="text-3xl mb-6">Tax Calculator 2024</h1>
+    <Container mx="auto" className="max-w-4xl">
+      <Group justify="space-between" gap="xs" className="mb-6">
+        <h1 className="text-3xl">Tax Calculator 2024</h1>
+        <div className="text-right">
+          <Text c="dimmed">Last updated: September 18, 2024</Text>
+        </div>
+      </Group>
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-12 lg:col-span-8">
+        <div className="col-span-12">
           <Stack gap="sm">
             <NumberInput
               size="lg"
@@ -177,12 +186,12 @@ export default function TaxCalculator() {
                   }
                   radius="lg"
                 >
-                  <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }}>
+                  <SimpleGrid cols={{ base: 2, xs: 2, md: 4 }}>
                     <div>
                       <Text lh="xs" c="dimmed">
                         SSS
                       </Text>
-                      <Text className="text-2xl">
+                      <Text className="text-2xl leading-loose">
                         {formatNum(sssContribution.totalEmployeeShare)}
                       </Text>
                     </div>
@@ -190,17 +199,24 @@ export default function TaxCalculator() {
                       <Text lh="xs" c="dimmed">
                         PhilHealth
                       </Text>
-                      <Text className="text-2xl">{formatNum(philHealth)}</Text>
+                      <Text className="text-2xl leading-loose">
+                        {formatNum(philHealth)}
+                      </Text>
                     </div>
                     <div>
                       <Text lh="xs" c="dimmed">
                         PAG-IBIG
                       </Text>
-                      <Text className="text-2xl">{formatNum(pagIbig)}</Text>
+                      <Text className="text-2xl leading-loose">
+                        {formatNum(pagIbig)}
+                      </Text>
                     </div>
                     <div>
                       <Text lh="xs">Total Contributions</Text>
-                      <Text className="text-2xl" c="lime.4">
+                      <Text
+                        className="text-2xl leading-loose font-bold"
+                        c="lime.4"
+                      >
                         {formatNum(contributions)}
                       </Text>
                     </div>
@@ -224,14 +240,19 @@ export default function TaxCalculator() {
                     <Text size="xs" lh="xs" c="dimmed">
                       My gross income - total contributions
                     </Text>
-                    <Text className="text-2xl">{formatNum(taxableIncome)}</Text>
+                    <Text className="text-2xl leading-loose">
+                      {formatNum(taxableIncome)}
+                    </Text>
                   </div>
                   <div>
                     <Text lh="xs">Tax</Text>
                     <Text size="xs" lh="xs" c="dimmed">
                       Amount that goes to the government
                     </Text>
-                    <Text className="text-2xl font-bold" c="lime.4">
+                    <Text
+                      className="text-2xl leading-loose font-bold"
+                      c="lime.4"
+                    >
                       {formatNum(tax)}
                       {!tax ? " - Exempted" : null}
                     </Text>
@@ -239,9 +260,9 @@ export default function TaxCalculator() {
                   <div>
                     <Text lh="xs">Income after Tax</Text>
                     <Text size="xs" lh="xs" c="dimmed">
-                      My taxable income - tax
+                      My gross income - tax
                     </Text>
-                    <Text className="text-2xl">
+                    <Text className="text-2xl leading-loose">
                       {formatNum(incomeAfterTax)}
                     </Text>
                   </div>
@@ -263,16 +284,19 @@ export default function TaxCalculator() {
                   <Text size="xs" lh="xs" c="dimmed">
                     My tax + total contributions
                   </Text>
-                  <Text className="text-2xl" c="lime.4">
+                  <Text className="text-2xl leading-loose">
                     {formatNum(totalDeductions)}
                   </Text>
                 </div>
                 <div>
                   <Text lh="xs">Net Income</Text>
                   <Text size="xs" lh="xs" c="dimmed">
-                    My actual take home pay
+                    My actual take home pay: income - total deductions
                   </Text>
-                  <Text className="text-4xl font-bold" c="lime.4">
+                  <Text
+                    className="text-4xl leading-relaxed font-bold"
+                    c="lime.4"
+                  >
                     {formatNum(netIncome)}
                   </Text>
                 </div>
@@ -280,8 +304,16 @@ export default function TaxCalculator() {
             </Fieldset>
           </Stack>
         </div>
-        <div className="col-span-8"></div>
+        <div className="col-span-4"></div>
       </div>
+      <div className="py-10">{children}</div>
+      <Text c="dimmed">
+        Developed for you by{" "}
+        <Anchor href={ROUTES.LANDING.HOME} c="lime.4">
+          Amito
+        </Anchor>
+        .
+      </Text>
       {/* <SSSTable /> */}
     </Container>
   );

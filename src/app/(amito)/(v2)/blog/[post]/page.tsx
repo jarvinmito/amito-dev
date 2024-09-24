@@ -18,13 +18,13 @@ import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import BrandTitle from "@/app/components/Branding/BrandTitle";
 import HackedText from "@/app/components/Branding/Cyberpunk/HackedText";
 
-type Props = {
+export type BlogProps = {
   params: { post: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params, searchParams }: BlogProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // fetch data
@@ -38,7 +38,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({ params }: BlogProps) {
   const postData = await getPostData(params.post);
 
   return (
