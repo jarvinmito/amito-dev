@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tax-calculator.amito.dev"
+        }
+      ],
+      "destination": "/app/tax-calculator/:path*"
+    }
+  ]
+}
