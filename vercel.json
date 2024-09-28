@@ -8,7 +8,7 @@
           "value": "tax-calculator.amito.dev"
         }
       ],
-      "destination": "/app/tax-calculator/:path*"
+      "destination": "/apps/tax-calculator/:path*"
     }
   ]
 }
