@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "tax-calculator.amito.dev"
+          "value": "taxcalculator.amito.dev"
         }
       ],
       "destination": "/apps/tax-calculator/:path*"
