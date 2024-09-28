@@ -131,16 +131,7 @@ export const LayoutTemplate = ({
             <Row className="w-full max-w-[700px]">
               <Column>
                 <Container className="w-full max-w-[700px] rounded-sm bg-white m-0">
-                  <Container
-                    className="w-full max-w-[700px] bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url("${assets.CLIENT_IMAGES}/${
-                        version === 1
-                          ? "twent3-lenticular-bg"
-                          : "lenticular-bg-2-min"
-                      }.png")`,
-                    }}
-                  >
+                  <Container className="w-full max-w-[700px] bg-[#00101d] relative z-10">
                     <Row>
                       <Column>&nbsp;</Column>
                       <Column className="w-[110px] h-[122px]">
@@ -177,6 +168,16 @@ export const LayoutTemplate = ({
                         <Column>{children}</Column>
                       </Row>
                     )}
+                    <Img
+                      src={
+                        version === 1
+                          ? `${assets.CLIENT_IMAGES}/twent3-lenticular-bg.png`
+                          : `${assets.CLIENT_IMAGES}/lenticular-bg-2-min.png`
+                        // : "https://cdn.shopify.com/s/files/1/2777/2232/files/Custom_lenticular_Template_bg.png?v=1727196154"
+                      }
+                      alt="Twent3 background"
+                      className="w-full h-full absolute -z-[1] inset-0 object-cover"
+                    />
                   </Container>
 
                   {version === 1 ? (
