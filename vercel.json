@@ -1,9 +1,9 @@
 {
   "rewrites": [
     {
-      "source": "/apps/tax-calculator/:path*",
-      "destination": "https://taxcalculator.amito.dev/:path*"
-    },
-    { "source": "/(.*)", "destination": "/" }
+      "source": "/",
+      "has": [{ "type": "header", "key": "host", "value": "tax.amito.dev" }],
+      "destination": "/apps/tax-calculator"
+    }
   ]
 }
