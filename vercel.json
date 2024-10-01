@@ -4,6 +4,13 @@
       "source": "/",
       "has": [{ "type": "header", "key": "host", "value": "tax.amito.dev" }],
       "destination": "/apps/tax-calculator"
+    },
+    {
+      "source": "/",
+      "has": [
+        { "type": "header", "key": "host", "value": "taxcalculator.amito.dev" }
+      ],
+      "destination": "/apps/tax-calculator"
     }
   ]
 }
