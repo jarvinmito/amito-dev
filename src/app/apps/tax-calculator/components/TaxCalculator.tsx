@@ -308,7 +308,7 @@ export default function TaxCalculator({ children }: any) {
       </div>
       <div className="py-10">{children}</div>
       <Text c="dimmed">
-        Developed for you by{" "}
+        Developed for me by{" "}
         <Anchor href={ROUTES.LANDING.HOME} c="lime.4">
           Amito
         </Anchor>
