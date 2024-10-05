@@ -19,11 +19,20 @@ export const EXPERIENCES: IEXPERIENCES[] = [
     year: "2024",
     experiences: [
       {
+        title: "Property Webmasters",
+        role: "Frontend Developer",
+        date: "September 2024 - Present",
+        description: [
+          "Working with Property Webmasters a website service provider in the real estate space as a Frontend Developer.",
+          "Responsible for making improvements to the current platform and bring delight to PWM's customers.",
+        ],
+      },
+      {
         title: "Amito",
-        role: "Freelance / Job hunting",
+        role: "Builder",
         date: "Jan 2024 - Present",
         description: [
-          "During a career break early this year, I returned my curiosity into getting into being a solopreneur.",
+          "During a career break early this year, I found myself getting into solopreneurship.",
           "Built a micro-SaaS dedicated for small store owners here in the Philippines using the tech stack NextJS, React, Clerk, Xata, Vercel to ship fast. It is a small Inventory and Sales Tracking app that is simple to use and allows store owners to gain insights on their store's performance e.g., tracking daily sales, notification of low or out of stock items, most sold items etc.",
           "This is still in the early stage of the product and I need to learn how to market the app to the right audience while building a brand for it. I am actively looking for freelance or full time work in order to bootstrap this venture.",
         ],

@@ -8,5 +8,7 @@ export const ROUTES = {
     SERVICES: "/services",
     WORKS: "/works",
     PROJECTS: "/projects",
+    TAXCALC: "/apps/tax-calculator",
+    TENURE: "/apps/tenure",
   },
 };
