@@ -8,12 +8,12 @@ Compute my taxes and contributions. This app will help in identifying where port
 
 ### How to use the tax calculator?
 
-> Enter current monthly gross income.
+Enter current monthly gross income.
 
-> It will automatically compute everything, from my contributions to taxes, as well as my take home pay.
+It will automatically compute everything, from my contributions to taxes, as well as my take home pay.
 
 ### Upcoming updates
 
-> Tax table and contribution table highlighter -- to show where in the tables I fall at and why.
+Tax table and contribution table highlighter -- to show where in the tables I fall at and why.
 
-> Toggle income type -- If I am an employee, self-employed etc.
+Toggle income type -- If I am an employee, self-employed etc.
