@@ -187,7 +187,7 @@ const TrackMySpending = () => {
                 </>
               ))
             ) : (
-              <Text>Empty</Text>
+              <Text p="sm">Empty</Text>
             )}
           </GridCol>
           <GridCol span={4}>
