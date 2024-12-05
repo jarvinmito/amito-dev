@@ -25,4 +25,16 @@ export const APPS: IApp[] = [
     description:
       "Super sweet small app that calculates how long have you been in to something.",
   },
+  {
+    title: "Track My Spending",
+    link: ROUTES.LANDING.SPENDING_TRACKER,
+    description:
+      "Want to know where your money goes? Track it using this small tool.",
+  },
+  {
+    title: "Ka1zen",
+    link: ROUTES.LANDING.KAIZEN,
+    description:
+      "Motivating yourself to do the things you must do is hard. This small app will help you achieve your goals by improving 1% at a time. Track your progress everyday and see far you'll get since the time you began your journey.",
+  },
 ];

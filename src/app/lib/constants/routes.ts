@@ -10,5 +10,7 @@ export const ROUTES = {
     PROJECTS: "/projects",
     TAXCALC: "/apps/tax-calculator",
     TENURE: "/apps/tenure",
+    SPENDING_TRACKER: "/apps/track-my-spending",
+    KAIZEN: "/apps/kaizen",
   },
 };
