@@ -1,11 +1,13 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { getUnixTime } from "date-fns";
 import { generateRandomString } from "@/lib/utils/formatters";
 
 export interface SpendingItem {
   id?: string; // Auto generated random id
   text: string; // What or where the money is spent
   amount: number; // Amount of money spent
+  spentAt?: Date | null;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -18,6 +20,7 @@ interface SpendingState {
   removeListItem: (id: string) => void;
   resetList: () => void;
 
+  getSpendings: () => SpendingItem[];
   getTotalSpending: () => number;
 }
 
@@ -73,11 +76,18 @@ const useSpendingListStore = create<SpendingState>()(
         })),
 
       // State getters
-      getTotalSpending: () =>
-        get().spendings.reduce(
-          (total, spendingItem) => spendingItem.amount + total,
-          0
+      // Get spendings and sort it based on date spent latest to oldest
+      getSpendings: () =>
+        get().spendings.sort(
+          (a, b) =>
+            getUnixTime(new Date(b.spentAt!)) -
+            getUnixTime(new Date(a.spentAt!))
         ),
+
+      getTotalSpending: () =>
+        get()
+          .getSpendings()
+          .reduce((total, spendingItem) => spendingItem.amount + total, 0),
     }),
     {
       name: "spending-list-store",
