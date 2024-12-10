@@ -1,7 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { getUnixTime } from "date-fns";
+import { getUnixTime, isSameMonth } from "date-fns";
 import { generateRandomString } from "@/lib/utils/formatters";
+
+export interface BudgetDateItem {
+  date: Date; // month only
+  amount: number;
+}
 
 export interface SpendingItem {
   id?: string; // Auto generated random id
@@ -13,21 +18,62 @@ export interface SpendingItem {
 }
 
 interface SpendingState {
+  // Budget record
+  budgets: BudgetDateItem[];
+  updateBudget: (budget: number) => void;
+
+  // All spending record
   spendings: SpendingItem[];
 
+  // Date view range
+  date: Date;
+  updateDate: (date: Date) => void;
+
+  // CRUD operations
   addToList: (item: SpendingItem) => void;
   updateListItem: (item: SpendingItem) => void;
   removeListItem: (id: string) => void;
   resetList: () => void;
 
+  // Getters
   getSpendings: () => SpendingItem[];
   getTotalSpending: () => number;
+  getCurrentBudget: () => BudgetDateItem | undefined;
 }
 
 const useSpendingListStore = create<SpendingState>()(
   persist(
     (set, get) => ({
+      budgets: [],
+      updateBudget: (amount: number) =>
+        set((state: SpendingState) => {
+          // Check if budget on a date exists
+          const { budgets, date } = state;
+          const thereIsABudget = budgets.find((budget) =>
+            isSameMonth(new Date(budget.date), new Date(date))
+          );
+          // If there is, update it
+          if (thereIsABudget) {
+            return {
+              budgets: budgets.map((b) => {
+                if (isSameMonth(new Date(b.date), new Date(date))) {
+                  return {
+                    ...b,
+                    amount,
+                  };
+                }
+                return b;
+              }),
+            };
+          }
+          // If not, add it
+          return { budgets: [...get().budgets, { date, amount }] };
+        }),
+
       spendings: [],
+
+      date: new Date(),
+      updateDate: (date: Date) => set(() => ({ date })),
 
       // Add an item to the bucket list by appending the new object into the existing array
       // TODO: find a way to add the TAG there before going to this function
@@ -78,20 +124,32 @@ const useSpendingListStore = create<SpendingState>()(
       // State getters
       // Get spendings and sort it based on date spent latest to oldest
       getSpendings: () =>
-        get().spendings.sort(
-          (a, b) =>
-            getUnixTime(new Date(b.spentAt!)) -
-            getUnixTime(new Date(a.spentAt!))
-        ),
+        get()
+          // Filter out based on the current selected date -- month
+          .spendings.filter((spend) =>
+            isSameMonth(new Date(spend.spentAt!), new Date(get().date))
+          )
+          // Sort by latest -> oldest date
+          .sort(
+            (a, b) =>
+              getUnixTime(new Date(b.spentAt!)) -
+              getUnixTime(new Date(a.spentAt!))
+          ),
 
       getTotalSpending: () =>
         get()
           .getSpendings()
           .reduce((total, spendingItem) => spendingItem.amount + total, 0),
+
+      getCurrentBudget: () =>
+        get().budgets.find((b) =>
+          isSameMonth(new Date(b.date), new Date(get().date))
+        ),
     }),
     {
       name: "spending-list-store",
       partialize: (state) => ({
+        budgets: state.budgets,
         spendings: state.spendings,
       }),
     }
