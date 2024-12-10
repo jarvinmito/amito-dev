@@ -205,6 +205,10 @@ const TrackMySpending = () => {
     setPercentSpent((totalSpending / (budget?.amount || 0)) * 100);
   }, [totalSpending, budget]);
 
+  useEffect(() => {
+    setFormBudget(budget);
+  }, [date]);
+
   return (
     <Container size="lg">
       <Stack gap="lg">
@@ -239,7 +243,7 @@ const TrackMySpending = () => {
                       />
                     </ActionIcon>
                   </Tooltip>
-                  {!isSameMonth(date, new Date()) ? (
+                  {!isSameMonth(date, addMonths(new Date(), 1)) ? (
                     <Tooltip label="Next Month">
                       <ActionIcon
                         variant="light"
