@@ -16,8 +16,6 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <section className="container min-h-screen mx-auto flex flex-col justify-start gap-8 px-5 xl:px-0">
-      <WorksSection />
-
       <div className="container max-w-3xl mx-auto py-12">
         <Stack>
           <h2 className="uppercase">
@@ -38,6 +36,8 @@ export default function ProjectsPage() {
           </div>
         </Stack>
       </div>
+
+      <WorksSection />
     </section>
   );
 }

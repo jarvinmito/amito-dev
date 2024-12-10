@@ -1,5 +1,12 @@
 import { CURRENCIES } from "@/app/lib/constants/currencies";
 
+export const formatPositiveNumber = (number: number, decimalPlaces: number) => {
+  return Number(Math.abs(number)).toLocaleString("en", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: decimalPlaces,
+  });
+};
+
 /** This is intended to format numbers for DISPLAY only */
 export const formatNumber = (
   number: number,
@@ -7,12 +14,9 @@ export const formatNumber = (
   noCurrency = false,
   currency = CURRENCIES.USD
 ) => {
-  const formattedNumber = Number(number).toLocaleString("en", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: decimalPlaces,
-  });
-  if (formattedNumber === "NaN" || number <= 0)
-    return `${noCurrency ? "" : currency}0`;
+  const formattedNumber = formatPositiveNumber(number, decimalPlaces);
+  if (formattedNumber === "NaN") return `${noCurrency ? "" : currency}0`;
+  if (number < 0) return `(${noCurrency ? "" : currency}${formattedNumber})`;
   return `${noCurrency ? "" : currency}${formattedNumber}`;
 };
 

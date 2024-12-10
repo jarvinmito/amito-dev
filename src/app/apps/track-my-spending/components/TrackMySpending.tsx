@@ -4,12 +4,14 @@ import {
   ActionIcon,
   Alert,
   Button,
+  Center,
   Container,
   Flex,
   Grid,
   GridCol,
   Group,
   NumberInput,
+  RingProgress,
   Stack,
   Text,
   TextInput,
@@ -19,10 +21,30 @@ import {
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { useEffect, useState } from "react";
-import { format, isSameDay, isToday, isTomorrow, isYesterday } from "date-fns";
+import {
+  addMonths,
+  format,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  isTomorrow,
+  isYesterday,
+  subMonths,
+} from "date-fns";
 import { formatNum } from "@/lib/utils/formatters";
-import useSpendingListStore, { SpendingItem } from "../lib/store/app";
-import { IconRefresh, IconRocket } from "@tabler/icons-react";
+import useSpendingListStore, {
+  BudgetDateItem,
+  SpendingItem,
+} from "../lib/store/app";
+import {
+  IconArrowBack,
+  IconArrowForwardUp,
+  IconCash,
+  IconPencilDollar,
+  IconRefresh,
+  IconRocket,
+  IconTrashOff,
+} from "@tabler/icons-react";
 
 const DEFAULT_SPENDING = {
   text: "",
@@ -32,22 +54,40 @@ const DEFAULT_SPENDING = {
 
 const TrackMySpending = () => {
   const {
+    date,
+    updateDate,
     getSpendings,
     addToList,
     updateListItem,
     removeListItem,
     resetList,
     getTotalSpending,
+    getCurrentBudget,
+    updateBudget,
   } = useSpendingListStore();
 
   const totalSpending = getTotalSpending();
   const spendings = getSpendings();
+  const budget = getCurrentBudget();
+
+  const [remainingBudget, setRemainingBudget] = useState(
+    (budget?.amount || 0) - totalSpending
+  );
+
+  const [percentSpent, setPercentSpent] = useState(
+    (totalSpending / (budget?.amount || 0)) * 100
+  );
 
   const [spending, setSpending] = useState<SpendingItem>(DEFAULT_SPENDING);
+  const [formBudget, setFormBudget] = useState<BudgetDateItem | undefined>(
+    budget
+  );
   const [disabled, setDisabled] = useState<boolean>(false);
 
   const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submittingBudget, setSubmittingBudget] = useState<boolean>(false);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [editBudget, setEditBudget] = useState<boolean>(false);
 
   const handleAddSpending = () => {
     setSubmitting(true);
@@ -85,6 +125,46 @@ const TrackMySpending = () => {
     setTimeout(handleResetSpending, 600);
   };
 
+  const handleSaveBudget = () => {
+    setSubmittingBudget(true);
+    if (formBudget) {
+      updateBudget(formBudget.amount);
+    }
+
+    setTimeout(handleCancelBudget, 600);
+  };
+
+  const handleCancelBudget = () => {
+    setSubmittingBudget(false);
+    setFormBudget(budget);
+    setEditBudget(false);
+  };
+
+  const handleChangeMonth = (direction: "next" | "previous") => {
+    updateDate(
+      direction === "next"
+        ? addMonths(new Date(date), 1)
+        : subMonths(new Date(date), 1)
+    );
+  };
+
+  const handleNextMonth = () => {
+    handleChangeMonth("next");
+  };
+
+  const handlePreviousMonth = () => {
+    handleChangeMonth("previous");
+  };
+
+  const getColorByPercentage = (percent: number) => {
+    if (percent <= 15) return "red.6";
+    else if (percent <= 30) return "orange.5";
+    else if (percent <= 45) return "yellow.5";
+    else if (percent <= 60) return "lime.5";
+    else if (percent <= 75) return "teal.5";
+    else return "blue.5";
+  };
+
   const renderDate = (index: number) => {
     const prev = spendings[index - 1];
     const curr = spendings[index];
@@ -120,6 +200,11 @@ const TrackMySpending = () => {
     setDisabled(!Boolean(text && +amount));
   }, [spending]);
 
+  useEffect(() => {
+    setRemainingBudget((budget?.amount || 0) - totalSpending);
+    setPercentSpent((totalSpending / (budget?.amount || 0)) * 100);
+  }, [totalSpending, budget]);
+
   return (
     <Container size="lg">
       <Stack gap="lg">
@@ -132,30 +217,167 @@ const TrackMySpending = () => {
           p="sm"
           className="sticky top-0 z-10 bg-white dark:bg-black h-28"
         >
-          <div>
+          <div className="grow">
             <Group align="center" gap="xs">
               <Text component="h1" className="text-2xl font-bold">
                 Track My Spending
               </Text>
-              <Text c="dimmed" component="span">
-                &mdash; {format(new Date(), "MMMM yyyy")}
-              </Text>
+              <Flex gap="xs" align="center">
+                <Text c="dimmed" component="span">
+                  &mdash;
+                </Text>
+                <Flex align="center" gap={4}>
+                  <Tooltip label="Previous Month">
+                    <ActionIcon
+                      variant="light"
+                      radius="xl"
+                      size="lg"
+                      onClick={handlePreviousMonth}
+                    >
+                      <IconArrowBack
+                        style={{ width: rem(24), height: rem(24) }}
+                      />
+                    </ActionIcon>
+                  </Tooltip>
+                  {!isSameMonth(date, new Date()) ? (
+                    <Tooltip label="Next Month">
+                      <ActionIcon
+                        variant="light"
+                        radius="xl"
+                        size="lg"
+                        onClick={handleNextMonth}
+                      >
+                        <IconArrowForwardUp
+                          style={{ width: rem(24), height: rem(24) }}
+                        />
+                      </ActionIcon>
+                    </Tooltip>
+                  ) : null}
+                </Flex>
+                <Text c="dimmed" component="span">
+                  {format(new Date(date), "MMMM yyyy")}
+                </Text>
+              </Flex>
             </Group>
-            <Text c="lime.5" className="text-5xl font-bold">
-              {formatNum(totalSpending)}
-            </Text>
+            <Flex gap="lg" align="center" justify="space-between" w="100%">
+              <Stack gap={0}>
+                <Text c="lime.5" className="text-4xl font-bold" lh={1}>
+                  {formatNum(totalSpending)}
+                </Text>
+                <Text size="sm" c="dimmed">
+                  Spent
+                </Text>
+              </Stack>
+              {budget ? (
+                <>
+                  <Stack gap={0}>
+                    <Text
+                      c={getColorByPercentage(100 - percentSpent)}
+                      className="text-4xl font-bold"
+                      lh={1}
+                    >
+                      {formatNum(remainingBudget)}
+                    </Text>
+                    <Text size="sm" c="dimmed">
+                      Remaining Budget
+                    </Text>
+                  </Stack>
+                  {!editBudget ? (
+                    <Stack gap={0}>
+                      <Text c="lime.5" className="text-4xl font-bold" lh={1}>
+                        {formatNum(budget.amount)}
+                      </Text>
+                      <Text size="sm" c="dimmed">
+                        Budget
+                      </Text>
+                    </Stack>
+                  ) : null}
+                </>
+              ) : null}
+            </Flex>
           </div>
-          <Tooltip label="Reset Spendings">
-            <ActionIcon
-              size={48}
-              radius="xl"
-              variant="light"
-              color="red.6"
-              onClick={resetList}
-            >
-              <IconRefresh style={{ width: rem(32), height: rem(32) }} />
-            </ActionIcon>
-          </Tooltip>
+          <Flex gap="xs" align="center">
+            {/* BUdget Input */}
+            {editBudget ? (
+              <Stack gap="xs">
+                <NumberInput
+                  radius="lg"
+                  size="xs"
+                  prefix="₱"
+                  placeholder={formatNum(1000)}
+                  thousandSeparator=","
+                  min={0}
+                  value={formBudget?.amount || 0}
+                  onChange={(value) =>
+                    setFormBudget({
+                      date: new Date(date),
+                      amount: +value,
+                    })
+                  }
+                />
+                <Flex wrap="nowrap" gap="xs">
+                  <Button
+                    size="xs"
+                    radius="lg"
+                    loading={submittingBudget}
+                    variant="light"
+                    color="red.6"
+                    onClick={handleCancelBudget}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    size="xs"
+                    radius="lg"
+                    loading={submittingBudget}
+                    onClick={handleSaveBudget}
+                  >
+                    Save
+                  </Button>
+                </Flex>
+              </Stack>
+            ) : (
+              <RingProgress
+                label={
+                  <Center>
+                    <Tooltip label="Edit Budget">
+                      <ActionIcon
+                        size={48}
+                        radius="xl"
+                        variant="light"
+                        onClick={() => setEditBudget(true)}
+                      >
+                        <IconPencilDollar
+                          style={{ width: rem(32), height: rem(32) }}
+                        />
+                      </ActionIcon>
+                    </Tooltip>
+                  </Center>
+                }
+                sections={[
+                  {
+                    value: percentSpent,
+                    color: getColorByPercentage(100 - percentSpent),
+                  },
+                ]}
+                size={80}
+                thickness={4}
+                roundCaps
+              />
+            )}
+            <Tooltip label="Clear Spendings">
+              <ActionIcon
+                size={48}
+                radius="xl"
+                variant="light"
+                opacity={0.8}
+                color="red.6"
+                onClick={resetList}
+              >
+                <IconTrashOff style={{ width: rem(32), height: rem(32) }} />
+              </ActionIcon>
+            </Tooltip>
+          </Flex>
         </Flex>
         <Grid gutter={rem(72)}>
           <GridCol span={8}>
@@ -308,11 +530,12 @@ const TrackMySpending = () => {
                 variant="light"
                 radius="lg"
                 color="yellow"
-                title="Your usage of this app"
+                title="Using this app"
               >
-                This tool does not collect data and all my spending data are
-                stored on my device. Uninstalling, clearing caches from my
-                device will remove any spending data.
+                Does not collect or store any data. All the spending data that I
+                put here is securely stored on my device. If I uninstall this
+                app or clear its cache, all my spending data will be permanently
+                deleted from my device.
               </Alert>
             </Stack>
           </GridCol>
