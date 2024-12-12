@@ -9,6 +9,7 @@ import theme from "@/theme";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
 
 import GoogleAdSense from "./components/External/GoogleAdSense";
 import { GOOGLE_ADSENSE_ID } from "./lib/utils/constants";

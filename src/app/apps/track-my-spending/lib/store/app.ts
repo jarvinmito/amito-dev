@@ -8,7 +8,7 @@ export interface BudgetDateItem {
   amount: number;
 }
 
-export interface SpendingItem {
+export interface ISpendingItem {
   id?: string; // Auto generated random id
   text: string; // What or where the money is spent
   amount: number; // Amount of money spent
@@ -23,20 +23,20 @@ interface SpendingState {
   updateBudget: (budget: number) => void;
 
   // All spending record
-  spendings: SpendingItem[];
+  spendings: ISpendingItem[];
 
   // Date view range
   date: Date;
   updateDate: (date: Date) => void;
 
   // CRUD operations
-  addToList: (item: SpendingItem) => void;
-  updateListItem: (item: SpendingItem) => void;
+  addToList: (item: ISpendingItem) => void;
+  updateListItem: (item: ISpendingItem) => void;
   removeListItem: (id: string) => void;
   resetList: () => void;
 
   // Getters
-  getSpendings: () => SpendingItem[];
+  getSpendings: () => ISpendingItem[];
   getTotalSpending: () => number;
   getCurrentBudget: () => BudgetDateItem | undefined;
 }
@@ -77,7 +77,7 @@ const useSpendingListStore = create<SpendingState>()(
 
       // Add an item to the bucket list by appending the new object into the existing array
       // TODO: find a way to add the TAG there before going to this function
-      addToList: (item: SpendingItem) =>
+      addToList: (item: ISpendingItem) =>
         set(() => ({
           spendings: [
             ...get().spendings,
@@ -91,7 +91,7 @@ const useSpendingListStore = create<SpendingState>()(
 
       // Update an item inside the bucket list by looping through all the items and checking
       // based on the the item's id
-      updateListItem: (item: SpendingItem) =>
+      updateListItem: (item: ISpendingItem) =>
         set((state: SpendingState) => ({
           spendings: [
             ...state.spendings.map((s) => {

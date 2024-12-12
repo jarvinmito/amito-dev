@@ -1,4 +1,5 @@
 import TrackMySpending from "./components/TrackMySpending";
+import { PWAContextProvider } from "./context/pwa.context";
 
 export const metadata = {
   title: "Track My Spending",
@@ -10,5 +11,9 @@ export const metadata = {
 };
 
 export default async function TrackMySpendingPage() {
-  return <TrackMySpending />;
+  return (
+    <PWAContextProvider>
+      <TrackMySpending />
+    </PWAContextProvider>
+  );
 }
