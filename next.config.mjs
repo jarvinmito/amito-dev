@@ -1,3 +1,7 @@
+import pwa from "next-pwa";
+const withPWA = pwa({
+  dest: "public",
+});
 // import withMDX from "@next/mdx";
 
 // const mdxConfig = {
@@ -10,4 +14,4 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
 
-export default nextConfig; //withMDX(mdxConfig)(nextConfig);
+export default withPWA(nextConfig); //withMDX(mdxConfig)(nextConfig);
