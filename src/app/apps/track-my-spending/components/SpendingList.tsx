@@ -15,13 +15,13 @@ const SpendingList = ({ spendings, onItemClick }: ISpendingListProps) => (
       spendings.map((spending, index) => (
         <Fragment key={`spending-group-${index}`}>
           <Flex
-            className="bg-white dark:bg-black sticky top-28 z-10 flex flex-row items-center justify-between"
+            className="bg-white dark:bg-black sticky top-24 lg:top-36 z-10 flex flex-row items-center justify-between"
             p="sm"
           >
-            <Text fw="bold" tt="uppercase">
+            <Text fw="bold" tt="uppercase" className="text-sm lg:text-lg">
               {spending.title}
             </Text>
-            <Text fw="bold" tt="uppercase">
+            <Text fw="bold" tt="uppercase" className="text-sm lg:text-lg">
               {formatNum(spending.total)}
             </Text>
           </Flex>

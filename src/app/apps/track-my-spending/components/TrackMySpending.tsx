@@ -35,7 +35,7 @@ import {
 } from "@tabler/icons-react";
 import SpendingForm, { DEFAULT_SPENDING } from "./SpendingForm";
 import SpendingList from "./SpendingList";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { usePWAContext } from "../context/pwa.context";
 
 const TrackMySpending = () => {
@@ -75,6 +75,9 @@ const TrackMySpending = () => {
 
   // Drawer features
   const [opened, { open, close }] = useDisclosure(false);
+
+  // Media query
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const handleEditing = (item: ISpendingItem) => {
     console.log("EDITING ", item);
@@ -147,15 +150,22 @@ const TrackMySpending = () => {
             align="center"
             gap="lg"
             p="sm"
-            className="sticky top-0 z-10 bg-white dark:bg-black h-28"
+            className="sticky top-0 z-10 bg-white dark:bg-black h-28 lg:h-36"
           >
             <div className="grow">
-              <Group align="center" gap="xs">
-                <Text component="h1" className="text-2xl font-bold">
+              <Group align="center" gap="xs" mb="xs">
+                <Text
+                  component="h1"
+                  className="text-sm lg:text-2xl font-bold leading-normal"
+                >
                   Track My Spending
                 </Text>
                 <Flex gap="xs" align="center">
-                  <Text c="dimmed" component="span">
+                  <Text
+                    c="dimmed"
+                    component="span"
+                    className="text-xs lg:text-lg"
+                  >
                     &mdash;
                   </Text>
                   <Flex align="center" gap={4}>
@@ -163,12 +173,10 @@ const TrackMySpending = () => {
                       <ActionIcon
                         variant="light"
                         radius="xl"
-                        size="lg"
+                        className="h-5 w-5 lg:h-9 lg:w-9"
                         onClick={handlePreviousMonth}
                       >
-                        <IconArrowBack
-                          style={{ width: rem(24), height: rem(24) }}
-                        />
+                        <IconArrowBack className="h-4 w-4 lg:h-6 lg:w-6" />
                       </ActionIcon>
                     </Tooltip>
                     {!isSameMonth(date, addMonths(new Date(), 1)) ? (
@@ -176,59 +184,74 @@ const TrackMySpending = () => {
                         <ActionIcon
                           variant="light"
                           radius="xl"
-                          size="lg"
+                          className="h-5 w-5 lg:h-9 lg:w-9"
                           onClick={handleNextMonth}
                         >
-                          <IconArrowForwardUp
-                            style={{ width: rem(24), height: rem(24) }}
-                          />
+                          <IconArrowForwardUp className="h-4 w-4 lg:h-6 lg:w-6" />
                         </ActionIcon>
                       </Tooltip>
                     ) : null}
                   </Flex>
-                  <Text c="dimmed" component="span">
+                  <Text
+                    c="dimmed"
+                    component="span"
+                    className="text-xs lg:text-lg"
+                  >
                     {format(new Date(date), "MMMM yyyy")}
                   </Text>
                 </Flex>
               </Group>
-              <Flex gap="lg" align="center" justify="space-between" w="100%">
-                <Stack gap={0}>
-                  <Text c="lime.5" className="text-4xl font-bold" lh={1}>
-                    {formatNum(totalSpending)}
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    Spent
-                  </Text>
-                </Stack>
+              <Grid gutter="lg">
+                <GridCol span={4}>
+                  <Stack gap={0}>
+                    <Text
+                      c="lime.5"
+                      className="text-lg lg:text-4xl font-bold"
+                      lh={1}
+                    >
+                      {formatNum(totalSpending)}
+                    </Text>
+                    <Text className="text-xs lg:text-lg" c="dimmed">
+                      Spent
+                    </Text>
+                  </Stack>
+                </GridCol>
                 {budget ? (
                   <>
-                    <Stack gap={0}>
-                      <Text
-                        c={getColorByPercentage(100 - percentSpent)}
-                        className="text-4xl font-bold"
-                        lh={1}
-                      >
-                        {formatNum(remainingBudget)}
-                      </Text>
-                      <Text size="sm" c="dimmed">
-                        Remaining Budget
-                      </Text>
-                    </Stack>
-                    {!editBudget ? (
+                    <GridCol span={4}>
                       <Stack gap={0}>
-                        <Text c="lime.5" className="text-4xl font-bold" lh={1}>
+                        <Text
+                          c={getColorByPercentage(100 - percentSpent)}
+                          className="text-lg lg:text-4xl font-bold"
+                          lh={1}
+                        >
+                          {formatNum(remainingBudget)}
+                        </Text>
+                        <Text className="text-xs lg:text-lg" c="dimmed">
+                          Remaining
+                          <span className="invisible lg:visible"> Budget</span>
+                        </Text>
+                      </Stack>
+                    </GridCol>
+                    <GridCol span={4}>
+                      <Stack gap={0}>
+                        <Text
+                          c="lime.5"
+                          className="text-lg lg:text-4xl font-bold"
+                          lh={1}
+                        >
                           {formatNum(budget.amount)}
                         </Text>
-                        <Text size="sm" c="dimmed">
+                        <Text className="text-xs lg:text-lg" c="dimmed">
                           Budget
                         </Text>
                       </Stack>
-                    ) : null}
+                    </GridCol>
                   </>
                 ) : null}
-              </Flex>
+              </Grid>
             </div>
-            <Flex gap="xs" align="center">
+            <Flex gap={isDesktop ? "xs" : 0} align="center">
               {/* BUdget Input */}
               {editBudget ? (
                 <Stack gap="xs">
@@ -274,14 +297,12 @@ const TrackMySpending = () => {
                     <Center>
                       <Tooltip label="Edit Budget">
                         <ActionIcon
-                          size={48}
                           radius="xl"
                           variant="light"
+                          className="h-8 w-8 lg:h-12 lg:w-12"
                           onClick={() => setEditBudget(true)}
                         >
-                          <IconPencilDollar
-                            style={{ width: rem(32), height: rem(32) }}
-                          />
+                          <IconPencilDollar className="w-5 h-5 lg:w-8 lg:h-8" />
                         </ActionIcon>
                       </Tooltip>
                     </Center>
@@ -292,27 +313,27 @@ const TrackMySpending = () => {
                       color: getColorByPercentage(100 - percentSpent),
                     },
                   ]}
-                  size={80}
+                  size={isDesktop ? 80 : 56}
                   thickness={4}
                   roundCaps
                 />
               )}
               <Tooltip label="Clear Spendings">
                 <ActionIcon
-                  size={48}
                   radius="xl"
                   variant="light"
                   opacity={0.8}
                   color="red.6"
+                  className="h-8 w-8 lg:h-12 lg:w-12"
                   onClick={resetList}
                 >
-                  <IconTrashOff style={{ width: rem(32), height: rem(32) }} />
+                  <IconTrashOff className="w-5 h-5 lg:w-8 lg:h-8" />
                 </ActionIcon>
               </Tooltip>
             </Flex>
           </Flex>
           <Grid gutter={rem(72)}>
-            <GridCol span={{ base: 12, lg: 8 }} p={{ base: 0, lg: "xl" }}>
+            <GridCol span={{ base: 12, lg: 8 }} className="py-0 lg:py-10">
               {/* List everything here */}
               <Box visibleFrom="lg">
                 <SpendingList
@@ -330,11 +351,7 @@ const TrackMySpending = () => {
                 />
               </Box>
             </GridCol>
-            <GridCol
-              span={{ base: 12, lg: 4 }}
-              p={{ base: 0, lg: "xl" }}
-              visibleFrom="lg"
-            >
+            <GridCol span={{ base: 12, lg: 4 }} visibleFrom="lg">
               <SpendingForm
                 editMode={editMode}
                 item={spending}

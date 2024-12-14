@@ -18,17 +18,19 @@ const SpendingItem = ({
       direction="row"
       wrap="nowrap"
       gap="lg"
-      py="xs"
-      px="sm"
-      className="hover:bg-lime-950 rounded-2xl cursor-pointer"
+      className="px-3 py-2 hover:bg-lime-950 rounded-2xl cursor-pointer"
       onClick={onClick}
     >
-      <ThemeIcon size={36} radius="xl" variant="light">
+      <ThemeIcon radius="xl" variant="light" className="h-7 w-7 lg:h-9 lg:w-9">
         <IconRocket style={{ width: rem(18), height: rem(18) }} />
       </ThemeIcon>
       <Group justify="space-between" gap="lg" w="100%">
-        <Text c="dimmed">{spending.text}</Text>
-        <Text c="dimmed">{formatNum(spending.amount)}</Text>
+        <Text c="dimmed" className="text-sm lg:text-lg">
+          {spending.text}
+        </Text>
+        <Text c="dimmed" className="text-sm lg:text-lg">
+          {formatNum(spending.amount)}
+        </Text>
       </Group>
     </Flex>
   );
