@@ -7,6 +7,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const theme = createTheme({
+  breakpoints: {
+    xs: "40em",
+    sm: "48em",
+    md: "64em",
+    lg: "80em",
+    xl: "96em",
+  },
   black: "#131319",
   white: "#fefefe",
   primaryColor: "lime",
