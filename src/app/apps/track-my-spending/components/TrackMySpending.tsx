@@ -42,7 +42,7 @@ const TrackMySpending = () => {
   const {
     date,
     updateDate,
-    getSpendings,
+    getGroupedSpendings,
     resetList,
     getTotalSpending,
     getCurrentBudget,
@@ -52,7 +52,7 @@ const TrackMySpending = () => {
   const { deferredPrompt, handleInstallation } = usePWAContext();
 
   const totalSpending = getTotalSpending();
-  const spendings = getSpendings();
+  const spendings = getGroupedSpendings();
   const budget = getCurrentBudget();
 
   const [remainingBudget, setRemainingBudget] = useState(

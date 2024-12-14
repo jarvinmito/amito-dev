@@ -1,6 +1,13 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { getUnixTime, isSameMonth } from "date-fns";
+import {
+  format,
+  getUnixTime,
+  isSameMonth,
+  isThisHour,
+  isToday,
+  isYesterday,
+} from "date-fns";
 import { generateRandomString } from "@/lib/utils/formatters";
 
 export interface BudgetDateItem {
@@ -15,6 +22,12 @@ export interface ISpendingItem {
   spentAt?: Date | null;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface IGroupedSpending {
+  title: string;
+  total: number;
+  spendings: ISpendingItem[];
 }
 
 interface SpendingState {
@@ -38,6 +51,7 @@ interface SpendingState {
   // Getters
   getSpendings: () => ISpendingItem[];
   getTotalSpending: () => number;
+  getGroupedSpendings: () => IGroupedSpending[];
   getCurrentBudget: () => BudgetDateItem | undefined;
 }
 
@@ -140,6 +154,36 @@ const useSpendingListStore = create<SpendingState>()(
         get()
           .getSpendings()
           .reduce((total, spendingItem) => spendingItem.amount + total, 0),
+
+      getGroupedSpendings: () => {
+        const group = [];
+        const localSpendings = get().getSpendings();
+        for (let key in localSpendings) {
+          const currentDate = localSpendings[key].spentAt!;
+          const formattedDate = isToday(new Date(currentDate))
+            ? "Today"
+            : isYesterday(new Date(currentDate))
+            ? "Yesterday"
+            : format(currentDate, "MMM d yyyy");
+          // Check if the group exists
+          const groupIndex = group.findIndex(
+            (item) => item.title === formattedDate
+          );
+          if (groupIndex > -1) {
+            // Add the data on the existing group
+            group[groupIndex].total += +localSpendings[key].amount;
+            group[groupIndex].spendings.push(localSpendings[key]);
+          } else {
+            // Add the group with the first record
+            group.push({
+              title: formattedDate,
+              spendings: [localSpendings[key]],
+              total: +localSpendings[key].amount,
+            });
+          }
+        }
+        return group as IGroupedSpending[];
+      },
 
       getCurrentBudget: () =>
         get().budgets.find((b) =>
