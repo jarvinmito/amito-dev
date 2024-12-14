@@ -88,7 +88,7 @@ const SpendingForm = ({
   }, [item]);
 
   return (
-    <Stack gap="lg" className="sticky top-28" py="sm">
+    <Stack gap="lg" className="sticky lg:top-36" py="sm">
       <TextInput
         label={
           <Text component="span" lh="sm" fw="bold">

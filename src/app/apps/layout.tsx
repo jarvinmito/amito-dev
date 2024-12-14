@@ -14,7 +14,7 @@ export default function AppsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Box mih="100vh" w="100%" p={PADDING} color="gray.8">
+    <Box mih="100vh" w="100%" color="gray.8">
       {children}
     </Box>
   );
