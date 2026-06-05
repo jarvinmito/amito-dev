@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { ParallaxContextProvider } from "@/lib/context/parallax.context";
+import {
+  GOOGLE_ADSENSE_ID,
+  GOOGLE_ANALYTICS_ID,
+} from "@/app/lib/constants/externals";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAdSense from "@/app/components/External/GoogleAdSense";
 
 export const metadata: Metadata = {
   title: "Amito",
   description:
-    "Jan Arvin Mito - Front End Developer and Designer, Amito Software Development Services",
+    "Jan Arvin Mito — Front-end engineer focused on clear interfaces and dependable product execution.",
 };
 
-export default function RootLayout({
+export default function AmitoSegmentLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <ParallaxContextProvider>
-      <div className="w-full min-h-screen pb-6">{children}</div>
-    </ParallaxContextProvider>
+    <>
+      {children}
+      <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+      <GoogleAdSense pId={GOOGLE_ADSENSE_ID} />
+    </>
   );
 }

@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
-import { Box } from "@mantine/core";
-import { PADDING } from "@/app/lib/constants";
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
+import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
+import theme from "@/theme";
 
-export const metadata: Metadata = {
-  title: "Amito Apps",
-  description:
-    "Need something done? Checkout some of my tools here that might help you.",
+export const metadata = {
+  title: "Amito — Apps",
 };
 
 export default function AppsLayout({
@@ -14,8 +15,8 @@ export default function AppsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Box mih="100vh" w="100%" color="gray.8">
+    <MantineProvider theme={theme} defaultColorScheme="light">
       {children}
-    </Box>
+    </MantineProvider>
   );
 }

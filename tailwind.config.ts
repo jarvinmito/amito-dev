@@ -19,6 +19,12 @@ const config: Config = {
       colors: {
         black: "#131319",
         white: "#efefef",
+        /** ShadCN / `:root` tokens from globals.css (@apply semantic utilities) */
+        border: "var(--border)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        input: "var(--input)",
       },
     },
     // Updating default styles

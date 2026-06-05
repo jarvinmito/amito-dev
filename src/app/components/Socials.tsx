@@ -7,7 +7,7 @@ import Google from "@/app/components/Icons/Google";
 
 export interface ISocialItem {
   name: string;
-  image: string | JSX.Element | ReactElement;
+  image: string | ReactElement;
   href: string;
 }
 

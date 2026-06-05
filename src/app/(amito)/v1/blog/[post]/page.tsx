@@ -19,16 +19,16 @@ import BrandTitle from "@/app/components/Branding/BrandTitle";
 import HackedText from "@/app/components/Branding/Cyberpunk/HackedText";
 
 export type BlogProps = {
-  params: { post: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ post: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export async function generateMetadata(
-  { params, searchParams }: BlogProps,
+  { params }: BlogProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // fetch data
-  const postData = await getPostData(params.post);
+  const { post } = await params;
+  const postData = await getPostData(post);
   return {
     title: postData.title,
     openGraph: {
@@ -39,7 +39,8 @@ export async function generateMetadata(
 }
 
 export default async function BlogPost({ params }: BlogProps) {
-  const postData = await getPostData(params.post);
+  const { post } = await params;
+  const postData = await getPostData(post);
 
   return (
     <TypographyStylesProvider>
@@ -52,7 +53,7 @@ export default async function BlogPost({ params }: BlogProps) {
         >
           <Anchor
             component={Link}
-            href={ROUTES.LANDING.BLOG}
+            href={ROUTES.V1.BLOG}
             variant="transparent"
             c="gray.6"
           >

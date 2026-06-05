@@ -13,6 +13,12 @@
 /.next/
 /out/
 
+# Removed next-pwa; ignore stale artifacts if regenerated locally
+/public/sw.js
+/public/sw.js.map
+/public/workbox-*.js
+/public/workbox-*.js.map
+
 # production
 /build
 

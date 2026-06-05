@@ -6,7 +6,7 @@ import Amito from "@/app/components/Icons/Amito";
 const Logo = () => {
   return (
     <Anchor
-      href={ROUTES.LANDING.HOME}
+      href={ROUTES.V1.HOME}
       component={Link}
       c="var(--mantine-color-text)"
     >

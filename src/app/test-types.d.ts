@@ -1,3 +1,5 @@
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
+
 export type ModelViewerNode = HTMLElement & {
   setFrameColor: (attribute?: string) => void;
   setSaddleColor: (attribute?: string) => void;
@@ -7,13 +9,19 @@ export type ModelViewerNode = HTMLElement & {
   dismissPoster: () => void;
 };
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
-      "model-viewer": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement> & {
-          src: string;
-          exposure: string;
+      "model-viewer": DetailedHTMLProps<
+        HTMLAttributes<HTMLElement> & {
+          src?: string;
+          id?: string;
+          "camera-orbit"?: string;
+          exposure?: string;
+          "camera-controls"?: boolean;
+          "shadow-intensity"?: string;
+          "shadow-softness"?: string;
+          "environment-image"?: string;
         },
         HTMLElement
       >;

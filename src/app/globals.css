@@ -2,15 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* AMITO -- DESIGN SYSTEM */
 @layer base {
   * {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family:
+      Space Grotesk,
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    border-color: var(--border);
   }
 
   .font-quattro { font-family: 'Quattrocento Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}
   .font-space { font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  :root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+  }
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  html {
+    font-family:
+      var(--font-sans, Inter),
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
 }
 
 @layer components {
@@ -36,6 +122,8 @@
 /* PERSPECTIVE WRAPPER */
 html {
   overflow-x: hidden;
+  /* Offset in-page jumps so content clears sticky glass nav */
+  scroll-padding-top: 7.5rem;
   /* perspective: 1000px;
   height: 100vh; */
 }
@@ -51,7 +139,6 @@ html {
   transform-style: preserve-3d;
   transform-origin: center;
 }
-
 
 /* ANAGLYPH EFFECT */
 .anaglyph {
@@ -74,35 +161,35 @@ html {
   text-align: center;
   transform: scaleX(var(--scale, 1));
   animation: glitch-p 11s infinite alternate;
-  
+
   &::before,
   &::after {
     --top: 0;        /* offset from top [0 - 10] */
     --left: 0;       /* offset from left [0.001 - 1] */
     --v-height: 30%; /* visible part */
-    
+
     --n-tenth: calc(var(--f-size) * .1 * var(--top));
     --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
     --b-cut: calc(var(--t-cut) + var(--v-height));
-    
+
     content: attr(data-text);
     position: absolute;
     width: 100%;
     left: 0;
     text-align: center;
-    
+
     transform: translateX(calc(var(--left) * 100%));
-    
+
     /* this helps to get rid of pixelization */
     filter: drop-shadow(0 0 transparent); 
-    
+
     text-shadow: calc(var(--left) * -3em) 0 .02em lime, 
                  calc(var(--left) * -6em) 0 .02em #ff00e1;
-    
+
     background-color: var(--bg);
     clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut));
   } 
-  
+
   &::before {
     animation: glitch-b 1.7s infinite alternate-reverse;
   }
@@ -222,7 +309,6 @@ html {
   --b: 1px;   /* thickness of the border */
   --c: var(--mantine-color-violet-5);   /* color of the border */
   --w: 36px;  /* width of border */
-  
 
   border: var(--b) solid #0000; /* space for the border */
   --_g: #0000 90deg,var(--c) 0;
@@ -454,4 +540,62 @@ header, .hud-top, .hud-bottom {
     stroke-dasharray: 48 55;
     stroke-dashoffset: 0;
   }
+}
+
+/* ------- Minimal site (current public build) --------- */
+.site-minimal {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/*
+ * Editorial scale: comfortable line length + leading; column is capped and
+ * left-aligned (never centered).
+ */
+.minimal-prose {
+  @apply ml-0 mr-auto w-full max-w-[42rem] text-left text-xl leading-[1.75] tracking-[-0.01em] text-neutral-900 md:max-w-[46rem] md:text-[1.375rem] md:leading-[1.82] xl:max-w-[50rem];
+}
+
+.minimal-prose h1 {
+  @apply mb-8 mt-20 text-4xl font-semibold tracking-tight text-black first:mt-0 md:mb-10 md:mt-24 md:text-5xl lg:text-[3.25rem];
+}
+
+.minimal-prose h2 {
+  @apply mb-6 mt-16 text-3xl font-semibold tracking-tight text-black md:mt-20 md:text-4xl lg:text-[2.5rem];
+}
+
+.minimal-prose h3 {
+  @apply mb-5 mt-12 text-2xl font-semibold tracking-tight text-black md:mt-16 md:text-3xl;
+}
+
+.minimal-prose p {
+  @apply mb-8 text-neutral-800 md:mb-10;
+}
+
+.minimal-prose ul {
+  @apply mb-10 list-disc space-y-4 pl-8 text-neutral-800 md:pl-10;
+}
+
+.minimal-prose ol {
+  @apply mb-10 list-decimal space-y-4 pl-8 text-neutral-800 md:pl-10;
+}
+
+.minimal-prose li {
+  @apply leading-relaxed;
+}
+
+.minimal-prose li > p {
+  @apply mb-4;
+}
+
+.minimal-prose a {
+  @apply text-black underline decoration-black/25 underline-offset-[5px] transition-colors hover:decoration-black;
+}
+
+.minimal-prose strong {
+  @apply font-semibold text-black;
+}
+
+.minimal-prose blockquote {
+  @apply mb-12 border-l-2 border-black/25 py-2 pl-8 text-neutral-600 md:pl-10;
 }

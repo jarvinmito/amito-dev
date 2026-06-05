@@ -20,7 +20,7 @@ import {
 } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { addMonths, format, isSameMonth, subMonths } from "date-fns";
-import { formatNum } from "@/lib/utils/formatters";
+import { formatNum } from "@/app/lib/utils/formatters";
 import useSpendingListStore, {
   BudgetDateItem,
   ISpendingItem,
@@ -80,7 +80,6 @@ const TrackMySpending = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const handleEditing = (item: ISpendingItem) => {
-    console.log("EDITING ", item);
     setEditMode(true);
     setSpending({
       ...item,
@@ -121,14 +120,7 @@ const TrackMySpending = () => {
     handleChangeMonth("previous");
   };
 
-  const getColorByPercentage = (percent: number) => {
-    if (percent <= 15) return "red.6";
-    else if (percent <= 30) return "orange.5";
-    else if (percent <= 45) return "yellow.5";
-    else if (percent <= 60) return "lime.5";
-    else if (percent <= 75) return "teal.5";
-    else return "blue.5";
-  };
+  const getColorByPercentage = (_percent: number) => "dark.9";
 
   useEffect(() => {
     setRemainingBudget((budget?.amount || 0) - totalSpending);
@@ -141,30 +133,31 @@ const TrackMySpending = () => {
 
   return (
     <>
-      <Container size="lg">
+      <Container fluid px={0} className="m-0 w-full max-w-none">
         <Stack gap="lg">
           <Flex
             direction="row"
             wrap="nowrap"
             justify="space-between"
             align="center"
-            gap="lg"
-            p="sm"
-            className="sticky top-0 z-10 bg-white dark:bg-black h-28 lg:h-36"
+            gap="xl"
+            py="md"
+            px="xs"
+            className="sticky top-0 z-10 min-h-[8.5rem] border-b border-neutral-100 bg-white md:min-h-[10.5rem]"
           >
             <div className="grow">
-              <Group align="center" gap="xs" mb="xs">
+              <Group align="center" gap="sm" mb="xs">
                 <Text
                   component="h1"
-                  className="text-sm lg:text-2xl font-bold leading-normal"
+                  className="text-2xl font-bold leading-tight md:text-3xl lg:text-4xl"
                 >
                   Track My Spending
                 </Text>
-                <Flex gap="xs" align="center">
+                <Flex gap="sm" align="center">
                   <Text
                     c="dimmed"
                     component="span"
-                    className="text-xs lg:text-lg"
+                    className="text-lg lg:text-2xl"
                   >
                     &mdash;
                   </Text>
@@ -173,10 +166,10 @@ const TrackMySpending = () => {
                       <ActionIcon
                         variant="light"
                         radius="xl"
-                        className="h-5 w-5 lg:h-9 lg:w-9"
+                        className="h-10 w-10 lg:h-11 lg:w-11"
                         onClick={handlePreviousMonth}
                       >
-                        <IconArrowBack className="h-4 w-4 lg:h-6 lg:w-6" />
+                        <IconArrowBack className="h-5 w-5 lg:h-7 lg:w-7" />
                       </ActionIcon>
                     </Tooltip>
                     {!isSameMonth(date, addMonths(new Date(), 1)) ? (
@@ -184,10 +177,10 @@ const TrackMySpending = () => {
                         <ActionIcon
                           variant="light"
                           radius="xl"
-                          className="h-5 w-5 lg:h-9 lg:w-9"
+                          className="h-10 w-10 lg:h-11 lg:w-11"
                           onClick={handleNextMonth}
                         >
-                          <IconArrowForwardUp className="h-4 w-4 lg:h-6 lg:w-6" />
+                          <IconArrowForwardUp className="h-5 w-5 lg:h-7 lg:w-7" />
                         </ActionIcon>
                       </Tooltip>
                     ) : null}
@@ -195,7 +188,7 @@ const TrackMySpending = () => {
                   <Text
                     c="dimmed"
                     component="span"
-                    className="text-xs lg:text-lg"
+                    className="text-lg lg:text-2xl"
                   >
                     {format(new Date(date), "MMMM yyyy")}
                   </Text>
@@ -205,13 +198,13 @@ const TrackMySpending = () => {
                 <GridCol span={4}>
                   <Stack gap={0}>
                     <Text
-                      c="lime.5"
-                      className="text-lg lg:text-4xl font-bold"
+                      c="dark.9"
+                      className="text-3xl font-bold leading-none md:text-4xl lg:text-5xl"
                       lh={1}
                     >
                       {formatNum(totalSpending)}
                     </Text>
-                    <Text className="text-xs lg:text-lg" c="dimmed">
+                    <Text className="text-sm md:text-lg" c="dimmed">
                       Spent
                     </Text>
                   </Stack>
@@ -222,12 +215,12 @@ const TrackMySpending = () => {
                       <Stack gap={0}>
                         <Text
                           c={getColorByPercentage(100 - percentSpent)}
-                          className="text-lg lg:text-4xl font-bold"
+                          className="text-3xl font-bold leading-none md:text-4xl lg:text-5xl"
                           lh={1}
                         >
                           {formatNum(remainingBudget)}
                         </Text>
-                        <Text className="text-xs lg:text-lg" c="dimmed">
+                        <Text className="text-sm md:text-lg" c="dimmed">
                           Remaining
                           <span className="invisible lg:visible"> Budget</span>
                         </Text>
@@ -236,13 +229,13 @@ const TrackMySpending = () => {
                     <GridCol span={4}>
                       <Stack gap={0}>
                         <Text
-                          c="lime.5"
-                          className="text-lg lg:text-4xl font-bold"
+                          c="dark.9"
+                          className="text-3xl font-bold leading-none md:text-4xl lg:text-5xl"
                           lh={1}
                         >
                           {formatNum(budget.amount)}
                         </Text>
-                        <Text className="text-xs lg:text-lg" c="dimmed">
+                        <Text className="text-sm md:text-lg" c="dimmed">
                           Budget
                         </Text>
                       </Stack>
@@ -276,7 +269,7 @@ const TrackMySpending = () => {
                       radius="lg"
                       loading={submittingBudget}
                       variant="light"
-                      color="red.6"
+                      color="gray.8"
                       onClick={handleCancelBudget}
                     >
                       Cancel
@@ -323,9 +316,7 @@ const TrackMySpending = () => {
                   radius="xl"
                   variant="light"
                   opacity={0.8}
-                  color="red.6"
-                  className="h-8 w-8 lg:h-12 lg:w-12"
-                  onClick={resetList}
+                  color="gray.8"
                 >
                   <IconTrashOff className="w-5 h-5 lg:w-8 lg:h-8" />
                 </ActionIcon>

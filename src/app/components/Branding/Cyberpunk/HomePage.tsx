@@ -102,7 +102,7 @@ export default function CyberpunkHomePage() {
         {PROJECTS?.length ? (
           <>
             <div data-aos="fade-up">
-              <SectionTitle title="Projects" href={ROUTES.LANDING.PROJECTS} />
+              <SectionTitle title="Projects" href={ROUTES.V1.PROJECTS} />
             </div>
             <div
               className="relative"

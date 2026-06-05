@@ -1,9 +1,22 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI();
+export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey?.trim()) {
+    return Response.json(
+      {
+        data: null,
+        message:
+          "OpenAI is not configured (set OPENAI_API_KEY to enable suggestions).",
+      },
+      { status: 503 },
+    );
+  }
+
   try {
+    const openai = new OpenAI({ apiKey });
     const suggestion = await openai.chat.completions.create({
       messages: [
         {

@@ -2,16 +2,14 @@
 import Link from "next/link";
 import {
   Anchor,
-  Container,
   Stack,
   Text,
   ThemeIcon,
   Timeline,
   rem,
 } from "@mantine/core";
-import { GUTTERS, GUTTERS_SMALL, ROUTES } from "@/app/lib/constants";
+import { GUTTERS_SMALL } from "@/app/lib/constants";
 import { IconNews } from "@tabler/icons-react";
-import BrandTitle from "@/app/components/Branding/BrandTitle";
 import ScrollUp from "@/app/components/ScrollUp/ScrollUp";
 import HackedText from "@/components/Branding/Cyberpunk/HackedText";
 
@@ -22,34 +20,14 @@ export interface IBlog {
   publish_date: string;
   filename: string;
 }
-export interface IMarkdownData {
-  data?: any;
-  title: string;
-  publish_date?: string;
-  content: string;
-  teaser_description?: string;
-  teaser_image?: string;
+
+export interface BlogSectionProps {
+  posts: IBlog[];
+  /** e.g. `/v1/blog` or `/blog` */
+  blogPathPrefix: string;
 }
 
-const BlogSection = () => {
-  const blogList: IBlog[] = [
-    {
-      title: "Level up your sari-sari store",
-      description:
-        "Featuring the launch of my latest work, a micro app for store owners, Mitotwee. Manage inventory and monitor sales using the app, goodbye to manual pen and paper listing.",
-      publish_date: "June 10, 2024",
-      filename: "mitotwee-launch",
-    },
-    {
-      title:
-        "PSA to all sari-sari store owners: Stop torturing yourself with math!",
-      description:
-        "Listen, we get it. You're the backbone of the neighborhood, the supplier of midnight snacks, and the keeper of the cold Coke. But does that mean you should be stuck doing inventory like it's 1999? 👵🧮",
-      publish_date: "May 31, 2024",
-      filename: "to-all-sari-sari-store-owners",
-    },
-  ];
-
+const BlogSection = ({ posts, blogPathPrefix }: BlogSectionProps) => {
   return (
     <div className="container max-w-3xl mx-auto py-12">
       <Stack justify="center" gap={GUTTERS_SMALL}>
@@ -58,7 +36,7 @@ const BlogSection = () => {
         </h2>
         <Stack>
           <Timeline bulletSize={48} lineWidth={1} color="black">
-            {blogList.map((blog, blogIndex) => (
+            {posts.map((blog, blogIndex) => (
               <Timeline.Item
                 key={`blog-${blogIndex}`}
                 bullet={
@@ -75,7 +53,7 @@ const BlogSection = () => {
                 <Stack gap="xs" pb="xl">
                   <Anchor
                     component={Link}
-                    href={`${ROUTES.LANDING.BLOG}/${blog.filename}`}
+                    href={`${blogPathPrefix}/${blog.filename}`}
                     c="white"
                   >
                     <Text size="lg" lh={1}>

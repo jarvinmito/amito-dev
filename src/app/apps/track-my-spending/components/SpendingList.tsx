@@ -15,7 +15,7 @@ const SpendingList = ({ spendings, onItemClick }: ISpendingListProps) => (
       spendings.map((spending, index) => (
         <Fragment key={`spending-group-${index}`}>
           <Flex
-            className="bg-white dark:bg-black sticky top-24 lg:top-36 z-10 flex flex-row items-center justify-between"
+            className="sticky top-24 z-10 flex flex-row items-center justify-between border-b border-neutral-100 bg-white lg:top-36"
             p="sm"
           >
             <Text fw="bold" tt="uppercase" className="text-sm lg:text-lg">

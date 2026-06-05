@@ -1,4 +1,5 @@
-import { StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
+import type { ReactElement } from "react";
 import { Group } from "@mantine/core";
 
 import ThumbK from "@/public/images/thumbnail-k.png";
@@ -25,13 +26,15 @@ import {
 export const CAROUSEL_AUTOPLAY_DELAY = 6000;
 
 export interface IPortfolio {
-  title: string | JSX.Element;
+  title: string | ReactElement;
   description: string;
   image: string | StaticImageData;
   imageAlt?: string;
   desktop?: string | StaticImageData;
   mobile?: string | StaticImageData;
   link?: string;
+  /** Past engagement or presentation; surfaced on the Projects portfolio for clarity */
+  obsolete?: boolean;
 }
 
 export const PROJECTS: IPortfolio[] = [
@@ -55,6 +58,7 @@ export const PROJECTS: IPortfolio[] = [
     imageAlt: "K - Sales management micro SaaS",
     desktop: DesktopK,
     mobile: MobileK,
+    obsolete: true,
   },
   {
     title: "Landing Page Service",
@@ -63,6 +67,7 @@ export const PROJECTS: IPortfolio[] = [
     imageAlt: "Amito Landing Page Service",
     desktop: DesktopLanding,
     mobile: MobileLanding,
+    obsolete: true,
   },
   {
     title: "eConsulta",
@@ -71,6 +76,7 @@ export const PROJECTS: IPortfolio[] = [
     imageAlt: "eConsulta Online Consultations",
     desktop: DesktopEConsulta,
     mobile: MobileEconsulta,
+    obsolete: true,
   },
   {
     title: (
@@ -83,6 +89,7 @@ export const PROJECTS: IPortfolio[] = [
     image: ThumbTips,
     imageAlt: "Mitotwee Tips",
     link: "https://mitotwee.com/tips-for-your-sari-sari-store",
+    obsolete: true,
   },
   {
     title: (
@@ -95,6 +102,7 @@ export const PROJECTS: IPortfolio[] = [
     image: ThumbMitotwee,
     imageAlt: "Mitotwee",
     link: "https://mitotwee.com",
+    obsolete: true,
   },
   {
     title: (
@@ -107,5 +115,6 @@ export const PROJECTS: IPortfolio[] = [
     image: ThumbOC,
     imageAlt: "Outcrate Website",
     link: "https://outcrate.xyz",
+    obsolete: true,
   },
 ];

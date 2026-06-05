@@ -18,7 +18,7 @@ const Header = ({ children }: AllHTMLAttributes<HTMLAllCollection>) => {
               <a
                 aria-label="Amito"
                 className="cursor-pointer"
-                href={ROUTES.LANDING.HOME}
+                href={ROUTES.V1.HOME}
               >
                 <span aria-hidden>
                   <HackedText
