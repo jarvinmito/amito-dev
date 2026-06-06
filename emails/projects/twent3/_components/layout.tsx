@@ -41,7 +41,7 @@ import { GET_CLIENT_ASSETS } from "@/emails/_lib/constants";
 
 interface LayoutTemplateProps {
   previewText?: string;
-  bannerText?: string | JSX.Element;
+  bannerText?: string | React.ReactElement;
   children?: React.ReactNode;
   data?: any;
   version?: 1 | 2;

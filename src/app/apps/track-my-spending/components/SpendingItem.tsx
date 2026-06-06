@@ -18,7 +18,7 @@ const SpendingItem = ({
       direction="row"
       wrap="nowrap"
       gap="lg"
-      className="px-3 py-2 hover:bg-lime-950 rounded-2xl cursor-pointer"
+      className="cursor-pointer rounded-2xl px-3 py-2 hover:bg-neutral-100"
       onClick={onClick}
     >
       <ThemeIcon radius="xl" variant="light" className="h-7 w-7 lg:h-9 lg:w-9">

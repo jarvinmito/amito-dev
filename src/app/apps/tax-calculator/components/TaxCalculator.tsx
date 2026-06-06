@@ -91,7 +91,16 @@ const getPagIbigTier = (amount: number) => {
   return PI_VALUES.TIER1;
 };
 
-export default function TaxCalculator({ children }: any) {
+type TaxCalculatorProps = {
+  children?: React.ReactNode;
+  /** Marketing site `/` — archive wraps with `/v1` */
+  homeHref?: string;
+};
+
+export default function TaxCalculator({
+  children,
+  homeHref = ROUTES.LANDING.HOME,
+}: TaxCalculatorProps) {
   // Set income, will come from user input or 0
   const [income, setIncome] = useState<string | number>("");
   const [allowDeductions, setAllowDeductions] = useState(true);
@@ -142,29 +151,31 @@ export default function TaxCalculator({ children }: any) {
   // Get the net income
   const netIncome = +income - totalDeductions;
 
-  console.log("SSS Contribution", sssContribution);
-
   return (
-    <Container mx="auto" className="max-w-4xl">
-      <Group justify="space-between" gap="xs" className="mb-6">
-        <h1 className="text-3xl">Tax Calculator 2024</h1>
+    <Container fluid className="m-0 w-full max-w-none px-0">
+      <Group justify="space-between" gap="md" align="flex-start" className="mb-10 md:mb-14">
+        <h1 className="text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight text-black">
+          Tax Calculator 2024
+        </h1>
         <div className="text-right">
-          <Text c="dimmed">Last updated: September 18, 2024</Text>
+          <Text c="dimmed" className="text-base md:text-lg">
+            Last updated: September 18, 2024
+          </Text>
         </div>
       </Group>
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 gap-8 md:gap-10">
         <div className="col-span-12">
-          <Stack gap="sm">
+          <Stack gap="md">
             <NumberInput
-              size="lg"
+              size="xl"
               radius="lg"
               label={
-                <Text lh="sm" fw="bold">
+                <Text size="lg" lh="sm" fw="bold">
                   Monthly Gross Income
                 </Text>
               }
               description={
-                <Text size="xs" c="dimmed">
+                <Text size="md" c="dimmed">
                   The amount of money I earn for each month
                 </Text>
               }
@@ -180,7 +191,7 @@ export default function TaxCalculator({ children }: any) {
               <div>
                 <Fieldset
                   legend={
-                    <Text size="md" fw="bold">
+                    <Text size="lg" fw="bold">
                       Contributions
                     </Text>
                   }
@@ -188,35 +199,34 @@ export default function TaxCalculator({ children }: any) {
                 >
                   <SimpleGrid cols={{ base: 2, xs: 2, md: 4 }}>
                     <div>
-                      <Text lh="xs" c="dimmed">
+                      <Text lh="xs" size="sm" c="dimmed">
                         SSS
                       </Text>
-                      <Text className="text-2xl leading-loose">
+                      <Text className="text-3xl leading-snug md:text-[2rem]">
                         {formatNum(sssContribution.totalEmployeeShare)}
                       </Text>
                     </div>
                     <div>
-                      <Text lh="xs" c="dimmed">
+                      <Text lh="xs" size="sm" c="dimmed">
                         PhilHealth
                       </Text>
-                      <Text className="text-2xl leading-loose">
+                      <Text className="text-3xl leading-snug md:text-[2rem]">
                         {formatNum(philHealth)}
                       </Text>
                     </div>
                     <div>
-                      <Text lh="xs" c="dimmed">
+                      <Text lh="xs" size="sm" c="dimmed">
                         PAG-IBIG
                       </Text>
-                      <Text className="text-2xl leading-loose">
+                      <Text className="text-3xl leading-snug md:text-[2rem]">
                         {formatNum(pagIbig)}
                       </Text>
                     </div>
                     <div>
-                      <Text lh="xs">Total Contributions</Text>
-                      <Text
-                        className="text-2xl leading-loose font-bold"
-                        c="lime.4"
-                      >
+                      <Text lh="xs" size="sm">
+                        Total Contributions
+                      </Text>
+                      <Text className="text-3xl font-bold leading-snug text-black md:text-[2rem]">
                         {formatNum(contributions)}
                       </Text>
                     </div>
@@ -228,7 +238,7 @@ export default function TaxCalculator({ children }: any) {
             <div>
               <Fieldset
                 legend={
-                  <Text size="md" fw="bold">
+                  <Text size="lg" fw="bold">
                     Tax Computation
                   </Text>
                 }
@@ -236,33 +246,36 @@ export default function TaxCalculator({ children }: any) {
               >
                 <SimpleGrid cols={{ base: 1, xs: 2, md: 3 }}>
                   <div>
-                    <Text lh="xs">Taxable Income</Text>
-                    <Text size="xs" lh="xs" c="dimmed">
+                    <Text lh="xs" size="sm">
+                      Taxable Income
+                    </Text>
+                    <Text size="sm" lh="xs" c="dimmed">
                       My gross income - total contributions
                     </Text>
-                    <Text className="text-2xl leading-loose">
+                    <Text className="text-3xl leading-snug md:text-[2rem]">
                       {formatNum(taxableIncome)}
                     </Text>
                   </div>
                   <div>
-                    <Text lh="xs">Tax</Text>
-                    <Text size="xs" lh="xs" c="dimmed">
+                    <Text lh="xs" size="sm">
+                      Tax
+                    </Text>
+                    <Text size="sm" lh="xs" c="dimmed">
                       Amount that goes to the government
                     </Text>
-                    <Text
-                      className="text-2xl leading-loose font-bold"
-                      c="lime.4"
-                    >
+                    <Text className="text-3xl font-bold leading-snug text-black md:text-[2rem]">
                       {formatNum(tax)}
                       {!tax ? " - Exempted" : null}
                     </Text>
                   </div>
                   <div>
-                    <Text lh="xs">Income after Tax</Text>
-                    <Text size="xs" lh="xs" c="dimmed">
+                    <Text lh="xs" size="sm">
+                      Income after Tax
+                    </Text>
+                    <Text size="sm" lh="xs" c="dimmed">
                       My gross income - tax
                     </Text>
-                    <Text className="text-2xl leading-loose">
+                    <Text className="text-3xl leading-snug md:text-[2rem]">
                       {formatNum(incomeAfterTax)}
                     </Text>
                   </div>
@@ -272,7 +285,7 @@ export default function TaxCalculator({ children }: any) {
 
             <Fieldset
               legend={
-                <Text size="md" fw="bold">
+                <Text size="lg" fw="bold">
                   Final Pay Computation
                 </Text>
               }
@@ -280,23 +293,24 @@ export default function TaxCalculator({ children }: any) {
             >
               <SimpleGrid cols={{ base: 1, sm: 2 }}>
                 <div>
-                  <Text lh="xs">Deductions</Text>
-                  <Text size="xs" lh="xs" c="dimmed">
+                  <Text lh="xs" size="sm">
+                    Deductions
+                  </Text>
+                  <Text size="sm" lh="xs" c="dimmed">
                     My tax + total contributions
                   </Text>
-                  <Text className="text-2xl leading-loose">
+                  <Text className="text-3xl leading-snug md:text-[2rem]">
                     {formatNum(totalDeductions)}
                   </Text>
                 </div>
                 <div>
-                  <Text lh="xs">Net Income</Text>
-                  <Text size="xs" lh="xs" c="dimmed">
+                  <Text lh="xs" size="sm">
+                    Net Income
+                  </Text>
+                  <Text size="sm" lh="xs" c="dimmed">
                     My actual take home pay: income - total deductions
                   </Text>
-                  <Text
-                    className="text-4xl leading-relaxed font-bold"
-                    c="lime.4"
-                  >
+                  <Text className="text-4xl font-bold leading-snug text-black md:text-5xl">
                     {formatNum(netIncome)}
                   </Text>
                 </div>
@@ -306,10 +320,10 @@ export default function TaxCalculator({ children }: any) {
         </div>
         <div className="col-span-4"></div>
       </div>
-      <div className="py-10">{children}</div>
-      <Text c="dimmed">
+      <div className="py-14 md:py-20">{children}</div>
+      <Text c="dimmed" size="lg">
         Developed for me by{" "}
-        <Anchor href={ROUTES.LANDING.HOME} c="lime.4">
+        <Anchor component={Link} href={homeHref} c="dark.9" underline="never">
           Amito
         </Anchor>
         .

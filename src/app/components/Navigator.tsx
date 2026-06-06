@@ -27,11 +27,11 @@ const Navigator = () => {
   // Path checker for the active link based on current route
   const path = usePathname();
   const links = [
-    { name: "Amito", href: ROUTES.LANDING.HOME },
-    { name: "Blog", href: ROUTES.LANDING.BLOG },
-    { name: "Experience", href: ROUTES.LANDING.EXP },
-    { name: "Services", href: ROUTES.LANDING.SERVICES },
-    { name: "Works", href: ROUTES.LANDING.WORKS },
+    { name: "Amito", href: ROUTES.V1.HOME },
+    { name: "Blog", href: ROUTES.V1.BLOG },
+    { name: "Experience", href: ROUTES.V1.EXP },
+    { name: "Services", href: ROUTES.V1.SERVICES },
+    { name: "Works", href: ROUTES.V1.WORKS },
   ];
 
   // Check if the current view is on MEDIUM+ screen size

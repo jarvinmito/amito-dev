@@ -3,3 +3,4 @@ export const GITHUB_PROFILE = "https://github.com/jarvinmito";
 export const MOBILE_NUMBER = "+639567642749";
 export const GOOGLE_PROFILE = "mailto:mito.jan.arvin@gmail.com";
 export const GOOGLE_ANALYTICS_ID = "G-GE5MHG167X";
+export const GOOGLE_ADSENSE_ID = "8650552707754602";

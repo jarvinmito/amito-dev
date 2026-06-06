@@ -173,7 +173,7 @@ const SpendingForm = ({
               fullWidth
               radius="lg"
               variant="light"
-              color="red.6"
+              color="gray.7"
               disabled={disabled}
               loading={submitting}
               onClick={handleCancel}
@@ -185,7 +185,7 @@ const SpendingForm = ({
                 fullWidth
                 radius="lg"
                 variant="subtle"
-                color="red.6"
+                color="gray.9"
                 disabled={disabled}
                 loading={submitting}
                 onClick={() => handleRemove(spending.id!)}
@@ -196,7 +196,7 @@ const SpendingForm = ({
           </>
         ) : null}
       </Group>
-      <Alert variant="light" radius="lg" color="yellow" title="Using this app">
+      <Alert variant="outline" radius="lg" color="gray" title="Using this app">
         Does not collect or store any data. All the spending data that I put
         here is securely stored on my device. If I uninstall this app or clear
         its cache, all my spending data will be permanently deleted from my

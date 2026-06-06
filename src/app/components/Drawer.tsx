@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 import Footer from "@/components/Sections/Footer";
 import HackedText from "@/components/Branding/Cyberpunk/HackedText";
-import { NAV_LINKS } from "@/lib/constants/navigator";
+import { NAV_LINKS_V1 } from "@/app/lib/constants/navigator";
 import { useEffect, useState } from "react";
 
 export interface IDrawer {
@@ -30,7 +30,7 @@ const Drawer = ({ open = false }: IDrawer) => {
       )}
     >
       <ul className="container max-w-2xl mx-auto text-center md:text-left px-5 xl:px-0">
-        {NAV_LINKS.map((link, linkIndex) => (
+        {NAV_LINKS_V1.map((link, linkIndex) => (
           <li
             key={`nav-link-${linkIndex}`}
             data-aos="fade-left"
