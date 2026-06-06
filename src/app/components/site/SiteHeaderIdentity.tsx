@@ -19,31 +19,24 @@ export function SiteHeaderIdentity() {
   }, []);
 
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="min-w-0">
       <Link
         href="/"
         className="inline-block tracking-tight text-black"
         aria-label="Amito — home"
       >
-        <span className="text-2xl font-semibold sm:text-3xl md:text-[2rem]">
+        <span className="text-xl font-black sm:text-2xl md:text-[1.75rem]">
           <HackedText
             text="Amito"
             autoPlay
             anaglyphOff
-            className="font-semibold tracking-tight"
+            className="font-black tracking-tight"
           />
         </span>
       </Link>
 
-      <p className="flex max-w-xl flex-row flex-wrap items-center gap-x-2 gap-y-2 text-neutral-700">
-        <span className="text-[0.7rem] font-medium uppercase tracking-[0.22em] sm:text-[0.75rem] sm:tracking-[0.26em]">
-          Available for business
-        </span>
-        <span
-          aria-hidden
-          className="relative mx-px inline-flex h-2 w-2 shrink-0 rounded-full bg-lime-400 before:absolute before:-inset-px before:size-2.5 before:animate-ping before:rounded-full before:bg-lime-400 before:opacity-75"
-        />
-        <span className="inline-flex flex-wrap items-baseline gap-x-1 font-mono text-[0.7rem] text-neutral-600 sm:text-xs">
+      <p className="flex max-w-md flex-row flex-wrap items-center gap-x-2 gap-y-2 text-neutral-700">
+        <span className="inline-flex flex-wrap items-baseline gap-x-1 font-mono text-[0.58rem] text-neutral-600 sm:text-[0.64rem]">
           <span className="hidden xl:inline">Based in </span>
           <span className="font-semibold uppercase tracking-[0.12em] text-neutral-900 sm:normal-case sm:tracking-normal">
             Philippines

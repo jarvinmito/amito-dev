@@ -1,9 +1,4 @@
-export const NAV_LINKS = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "Services", href: "/services" },
-];
+export const NAV_LINKS = [];
 
 /** Drawer / archive chrome only */
 export const NAV_LINKS_V1 = [

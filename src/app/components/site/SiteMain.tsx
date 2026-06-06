@@ -1,11 +1,11 @@
-import { SITE_HORIZONTAL_PAD } from "./site-layout";
+import { SITE_CONTENT_RAIL, SITE_HORIZONTAL_PAD } from "./site-layout";
 
 export function SiteMain({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={`site-minimal relative z-0 w-full max-w-none text-left ${SITE_HORIZONTAL_PAD} pb-28 pt-8 md:pb-36 md:pt-12`}
+      className={`site-minimal w-full text-left ${SITE_HORIZONTAL_PAD} pb-28 pt-48 md:pb-36 md:pt-56`}
     >
-      {children}
+      <div className={SITE_CONTENT_RAIL}>{children}</div>
     </div>
   );
 }
