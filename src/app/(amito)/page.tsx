@@ -224,14 +224,7 @@ export default function HomePage() {
               ))}
             </div>
             <p className="pt-4 text-base font-medium text-neutral-500 md:text-lg">
-              Full chronology mirrors the archived build at{" "}
-              <Link
-                className="text-black underline decoration-black/25 underline-offset-[6px]"
-                href="/v1"
-              >
-                /v1
-              </Link>
-              .
+              Full chronology available on request.
             </p>
           </div>
         </section>

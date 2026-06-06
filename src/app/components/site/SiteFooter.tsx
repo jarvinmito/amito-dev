@@ -53,14 +53,7 @@ export function SiteFooter() {
           </Link>
         </div>
         <p className="text-lg text-neutral-500 md:text-xl">
-          © {new Date().getFullYear()} amito.dev ·{" "}
-          <span className="text-neutral-400">Archived site: </span>
-          <Link
-            href="/v1"
-            className="text-black underline-offset-[6px] hover:underline"
-          >
-            /v1
-          </Link>
+          © {new Date().getFullYear()} amito.dev
         </p>
       </div>
     </footer>

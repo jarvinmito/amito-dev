@@ -6,7 +6,7 @@ import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
-import { FloatingNavigator } from "@/app/components/FloatingNavigator";
+import FloatingNavigator from "@/app/components/FloatingNavigator";
 import { PADDING } from "@/app/lib/constants";
 import theme from "@/theme";
 
@@ -29,4 +29,3 @@ export default function RootLayout({
     </MantineProvider>
   );
 }
-

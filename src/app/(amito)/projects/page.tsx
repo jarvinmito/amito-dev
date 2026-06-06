@@ -30,15 +30,8 @@ export default function ProjectsPage() {
         <p
           className={`${SITE_CONTENT_MEASURE} pb-20 text-xl leading-[1.8] text-neutral-700 md:pb-28 md:text-2xl md:leading-relaxed`}
         >
-          Concepts, experiments, and side work — experience under NDA is distilled
-          into writings when I can. Prior presentation also lives at{" "}
-          <Link
-            href="/v1/projects"
-            className="text-black underline decoration-black/25 underline-offset-[6px]"
-          >
-            /v1/projects
-          </Link>
-          .
+          Concepts, experiments, and side work — experience under NDA is
+          distilled into writings when I can.
         </p>
 
         <section className="border-t border-black/10 pb-24 pt-16 md:pb-36 md:pt-24">

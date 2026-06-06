@@ -39,19 +39,6 @@ export default function ServicesPage() {
           </Link>
           .
         </p>
-        <p
-          className={`${SITE_CONTENT_MEASURE} pb-20 text-lg leading-relaxed text-neutral-600 md:pb-28 md:text-xl`}
-        >
-          For the prior interactive layout see{" "}
-          <Link
-            href="/v1/services"
-            className="text-black underline decoration-black/25 underline-offset-[6px]"
-          >
-            /v1/services
-          </Link>
-          .
-        </p>
-
         <section className="space-y-12 border-t border-black/10 py-20 md:space-y-16 md:py-32">
           <h2 className="text-[clamp(1.5rem,2.8vw,2.125rem)] font-semibold text-black md:leading-snug">
             Software for sari-sari store owners

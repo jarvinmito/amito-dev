@@ -47,16 +47,6 @@ export default function BlogIndexPage() {
             </li>
           ))}
         </ul>
-        <p className="pb-24 pt-14 text-lg text-neutral-500 md:pb-32 md:pt-20 md:text-xl">
-          Original presentation available at{" "}
-          <Link
-            href="/v1/blog"
-            className="text-black underline decoration-black/25 underline-offset-[6px]"
-          >
-            /v1/blog
-          </Link>
-          .
-        </p>
       </SiteMain>
       <SiteFooter />
     </>

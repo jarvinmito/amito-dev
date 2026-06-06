@@ -1,4 +1,9 @@
-export const NAV_LINKS = [];
+type NavLink = {
+  name: string;
+  href: string;
+};
+
+export const NAV_LINKS: NavLink[] = [];
 
 /** Drawer / archive chrome only */
 export const NAV_LINKS_V1 = [
