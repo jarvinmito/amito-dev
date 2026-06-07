@@ -36,11 +36,11 @@ export default function HomePage() {
             borderRadius={30}
             backgroundOpacity={0.06}
             saturation={1}
-            borderWidth={0.1}
+            borderWidth={0.06}
             brightness={50}
             opacity={0.95}
-            blur={6}
-            displace={0.5}
+            blur={30}
+            displace={1}
             distortionScale={-180}
             redOffset={0}
             greenOffset={10}
