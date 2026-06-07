@@ -36,11 +36,11 @@ export default function HomePage() {
             borderRadius={30}
             backgroundOpacity={0.06}
             saturation={1}
-            borderWidth={0.1}
+            borderWidth={0.06}
             brightness={50}
             opacity={0.95}
-            blur={6}
-            displace={0.5}
+            blur={30}
+            displace={1}
             distortionScale={-180}
             redOffset={0}
             greenOffset={10}
@@ -51,16 +51,16 @@ export default function HomePage() {
           </ReactBitsGlassSurface>
         </div>
 
-        <section className="grid min-h-[100svh] place-items-start px-8 pb-14 pt-36 sm:pt-40 md:px-16 md:pb-16 md:pt-44 lg:px-20 xl:px-28 2xl:px-36">
+        <section className="grid min-h-[100svh] items-center justify-items-start px-8 py-28 md:px-16 md:py-24 lg:px-20 xl:px-28 2xl:px-36">
           <div className={`${heroRail} space-y-6 md:space-y-8`}>
-            <h1 className="text-[clamp(3.35rem,9.4vw,7.75rem)] font-black leading-[0.9] text-black">
+            <h1 className="text-[clamp(3.35rem,7.5vw,6.75rem)] font-black leading-[0.9] text-black">
               Web products. Built with intent.
             </h1>
-            <p className="max-w-[780px] text-2xl font-semibold leading-[1.28] text-neutral-800 md:text-[2rem] md:leading-[1.18]">
+            <p className="max-w-[760px] text-[clamp(1.55rem,2.4vw,2rem)] font-semibold leading-[1.24] text-neutral-900">
               Senior engineering for SaaS, portals, dashboards, and business
               websites.
             </p>
-            <p className="max-w-[720px] text-lg font-medium leading-[1.45] text-neutral-600 md:text-[1.35rem] md:leading-[1.35]">
+            <p className="max-w-[680px] text-[clamp(1.15rem,1.55vw,1.35rem)] font-medium leading-[1.42] text-neutral-700">
               AI-assisted where it speeds the work. Human-led where quality
               matters.
             </p>
@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative grid min-h-[100svh] place-items-start overflow-hidden px-8 py-20 md:px-16 md:py-24 lg:px-20 xl:px-28 2xl:px-36">
+        <section className="relative grid min-h-[100svh] items-center justify-items-start overflow-hidden px-8 py-20 md:px-16 md:py-20 lg:px-20 lg:py-24 xl:px-28 2xl:px-36">
           <NextImage
             src={SingilinBackground}
             alt=""
@@ -105,10 +105,10 @@ export default function HomePage() {
               <p className="text-sm font-black uppercase tracking-[0.32em] text-neutral-600 md:text-base md:tracking-[0.34em]">
                 Singilin
               </p>
-              <h2 className="text-[clamp(2.8rem,7vw,5.8rem)] font-black leading-[0.9] text-black">
+              <h2 className="text-[clamp(2.9rem,6.2vw,5.25rem)] font-black leading-[0.9] text-black">
                 Client billing. Less chasing.
               </h2>
-              <p className="max-w-[780px] text-2xl font-semibold leading-[1.28] text-neutral-800 md:text-[2rem] md:leading-[1.18]">
+              <p className="max-w-[760px] text-[clamp(1.55rem,2.4vw,2rem)] font-semibold leading-[1.24] text-neutral-900">
                 A focused workspace for proposals, invoices, payments, and
                 follow-ups.
               </p>
@@ -126,12 +126,12 @@ export default function HomePage() {
                 <p className="font-mono text-sm font-black uppercase tracking-[0.28em] text-neutral-500">
                   Built for
                 </p>
-                <ul className="space-y-3 text-xl font-semibold leading-snug text-neutral-700 md:text-[1.35rem]">
+                <ul className="space-y-3 text-xl font-semibold leading-snug text-neutral-800 md:text-[1.35rem]">
                   <li>Freelancers</li>
                   <li>Small agencies</li>
                   <li>Service businesses</li>
                 </ul>
-                <p className="text-base font-medium leading-relaxed text-neutral-500">
+                <p className="text-base font-medium leading-relaxed text-neutral-600">
                   Simple enough to use daily. Strong enough to support the
                   work.
                 </p>
@@ -145,10 +145,10 @@ export default function HomePage() {
             <h2 className="text-sm font-black uppercase tracking-[0.32em] text-neutral-500 md:text-base md:tracking-[0.34em]">
               Services
             </h2>
-            <p className="text-[clamp(2.6rem,7vw,5.8rem)] font-black leading-[0.9] text-black">
+            <p className="text-[clamp(2.75rem,5.8vw,5.25rem)] font-black leading-[0.9] text-black">
               Practical web work for growing businesses.
             </p>
-            <ul className="divide-y divide-black/10 border-y border-black/10 text-2xl font-semibold leading-tight text-neutral-800 md:text-4xl">
+            <ul className="divide-y divide-black/10 border-y border-black/10 text-[clamp(1.5rem,2.9vw,2.4rem)] font-semibold leading-tight text-neutral-900">
               {[
                 "SaaS MVPs",
                 "Business websites",
@@ -175,7 +175,7 @@ export default function HomePage() {
             <h2 className="text-sm font-black uppercase tracking-[0.32em] text-neutral-500 md:text-base md:tracking-[0.34em]">
               Background
             </h2>
-            <p className="text-2xl font-semibold leading-[1.35] text-neutral-800 md:text-4xl md:leading-[1.22]">
+            <p className="max-w-[760px] text-[clamp(1.55rem,2.4vw,2rem)] font-semibold leading-[1.24] text-neutral-900">
               Years of product delivery. Now focused on faster, sharper web
               builds.
             </p>
