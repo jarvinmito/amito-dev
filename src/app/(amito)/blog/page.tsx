@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Essays about side projects, product experiments, and the craft behind them.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function BlogIndexPage() {

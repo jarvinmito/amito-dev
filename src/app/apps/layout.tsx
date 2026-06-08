@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
@@ -5,8 +6,12 @@ import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 import theme from "@/theme";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Amito — Apps",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function AppsLayout({

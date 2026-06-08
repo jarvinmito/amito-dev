@@ -35,13 +35,16 @@ export function SiteHeaderIdentity() {
         </span>
       </Link>
 
-      <p className="flex max-w-md flex-row flex-wrap items-center gap-x-2 gap-y-2 text-neutral-700">
+      <p
+        className="flex max-w-md flex-row flex-wrap items-center gap-x-2 gap-y-2 text-neutral-700"
+        aria-label={`Based in Philippines, ${nowLabel} UTC+8`}
+      >
         <span className="inline-flex flex-wrap items-baseline gap-x-1 font-mono text-[0.58rem] text-neutral-600 sm:text-[0.64rem]">
           <span className="hidden xl:inline">Based in </span>
           <span className="font-semibold uppercase tracking-[0.12em] text-neutral-900 sm:normal-case sm:tracking-normal">
             Philippines
           </span>{" "}
-          <span aria-live="polite" className="tabular-nums text-neutral-700">
+          <span className="tabular-nums text-neutral-700">
             <span suppressHydrationWarning>
               {nowLabel}{" "}
             </span>

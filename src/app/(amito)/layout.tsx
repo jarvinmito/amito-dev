@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import {
-  GOOGLE_ADSENSE_ID,
-  GOOGLE_ANALYTICS_ID,
-} from "@/app/lib/constants/externals";
+import { GOOGLE_ANALYTICS_ID } from "@/app/lib/constants/externals";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import GoogleAdSense from "@/app/components/External/GoogleAdSense";
 
 export const metadata: Metadata = {
-  title: "Amito",
+  title: "Amito — Jan Arvin Mito",
   description:
-    "Jan Arvin Mito — Front-end engineer focused on clear interfaces and dependable product execution.",
+    "Jan Arvin Mito — senior web product engineer, builder of Singilin, and practical partner for durable web software.",
 };
 
 export default function AmitoSegmentLayout({
@@ -21,7 +17,6 @@ export default function AmitoSegmentLayout({
     <>
       {children}
       <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
-      <GoogleAdSense pId={GOOGLE_ADSENSE_ID} />
     </>
   );
 }

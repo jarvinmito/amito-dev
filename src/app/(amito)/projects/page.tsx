@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Tools, experiments, and case studies — from micro-apps to polished marketing sites.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 function portfolioHeading(p: IPortfolio): string {

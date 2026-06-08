@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Custom frontend development — landing pages, email templates, micro-SaaS, and product polish.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 const mitotweeMonthly = 180;

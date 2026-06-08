@@ -18,7 +18,7 @@ export function SiteFooter() {
             className="text-black underline-offset-[6px] hover:underline hover:text-neutral-800"
             href={LINKEDIN_PROFILE}
             target="_blank"
-            rel="noreferrer"
+            rel="me noopener noreferrer"
           >
             LinkedIn
           </Link>
@@ -26,9 +26,17 @@ export function SiteFooter() {
             className="text-black underline-offset-[6px] hover:underline hover:text-neutral-800"
             href={GITHUB_PROFILE}
             target="_blank"
-            rel="noreferrer"
+            rel="me noopener noreferrer"
           >
             GitHub
+          </Link>
+          <Link
+            className="text-black underline-offset-[6px] hover:underline hover:text-neutral-800"
+            href="https://singilin.ph"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            Singilin
           </Link>
           <Link
             className="text-black underline-offset-[6px] hover:underline hover:text-neutral-800"
@@ -46,7 +54,7 @@ export function SiteFooter() {
             className="text-black underline-offset-[6px] hover:underline hover:text-neutral-800"
             href="/AmitoCV2024.pdf"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             download={`AmitoCV${new Date().getFullYear()}`}
           >
             CV

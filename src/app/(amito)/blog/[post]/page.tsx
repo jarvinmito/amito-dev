@@ -21,6 +21,10 @@ export async function generateMetadata(
   const postData = await getPostData(post);
   return {
     title: postData.title,
+    robots: {
+      index: false,
+      follow: true,
+    },
     openGraph: {
       title: postData.title,
       description: postData.teaser_description,
